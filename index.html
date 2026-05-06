@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=375, initial-scale=1.0" />
+<title>太陽早餐店 菜單</title>
+<style>
+  /* ── Reset & Base ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --brand: #B22222;
+    --brand-light: #f9eded;
+    --brand-mid: #d94444;
+    --text-dark: #1a1a1a;
+    --text-mid: #555;
+    --text-light: #888;
+    --bg: #fff;
+    --card-bg: #fff;
+    --border: #eee;
+    --radius: 14px;
+    --font: 'Noto Sans TC', 'Noto Sans JP', 'Noto Sans KR', sans-serif;
+  }
+
+  html, body {
+    background: var(--bg);
+    color: var(--text-dark);
+    font-family: var(--font);
+    font-size: 15px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    max-width: 375px;
+    margin: 0 auto;
+    min-height: 100vh;
+  }
+
+  /* ── Google Fonts ── */
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap');
+
+  /* ── Language Bar ── */
+  #lang-bar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--brand);
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    padding: 0;
+    box-shadow: 0 2px 8px rgba(178,34,34,0.18);
+  }
+  .lang-btn {
+    flex: 1;
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.7);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 11px 4px;
+    cursor: pointer;
+    transition: color 0.15s, background 0.15s;
+    letter-spacing: 0.02em;
+  }
+  .lang-btn.active {
+    color: #fff;
+    background: rgba(255,255,255,0.15);
+    font-weight: 700;
+  }
+
+  /* ── Hero ── */
+  #hero {
+    background: var(--brand);
+    color: #fff;
+    text-align: center;
+    padding: 32px 20px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  #hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 60% 20%, rgba(255,200,80,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-img-wrap {
+    width: 100%;
+    height: 160px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 18px;
+    background: rgba(255,255,255,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .hero-placeholder {
+    font-size: 72px;
+    line-height: 1;
+    opacity: 0.85;
+  }
+  .store-name {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.18);
+    margin-bottom: 10px;
+  }
+  .store-info {
+    font-size: 13px;
+    opacity: 0.88;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: center;
+  }
+  .store-info a {
+    color: #fff;
+    text-decoration: none;
+  }
+  .info-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .info-icon { font-size: 14px; }
+
+  /* ── Category Tab Bar ── */
+  #cat-bar {
+    position: sticky;
+    top: 43px;
+    z-index: 90;
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+    overflow-x: auto;
+    scrollbar-width: none;
+    display: flex;
+    gap: 0;
+    padding: 0 12px;
+  }
+  #cat-bar::-webkit-scrollbar { display: none; }
+  .cat-tab {
+    flex: 0 0 auto;
+    background: none;
+    border: none;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-mid);
+    padding: 12px 12px 10px;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    white-space: nowrap;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .cat-tab.active {
+    color: var(--brand);
+    border-bottom-color: var(--brand);
+    font-weight: 700;
+  }
+
+  /* ── Menu Sections ── */
+  .menu-section {
+    padding: 0 0 8px;
+  }
+  .section-header {
+    padding: 20px 16px 10px;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--brand);
+    letter-spacing: 0.02em;
+    border-bottom: 1px solid var(--brand-light);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-header::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 18px;
+    background: var(--brand);
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  /* ── Item Cards ── */
+  .item-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .item-card {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    padding: 13px 16px;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    transition: background 0.12s;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .item-card:active {
+    background: var(--brand-light);
+  }
+  .item-card:last-child {
+    border-bottom: none;
+  }
+
+  /* emoji / image side */
+  .item-thumb {
+    width: 72px;
+    height: 72px;
+    border-radius: 10px;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: var(--brand-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 13px;
+    font-size: 36px;
+    line-height: 1;
+  }
+  .item-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* text side */
+  .item-body {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+  }
+  .item-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-dark);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .item-price-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+  }
+  .price-chip {
+    font-size: 13px;
+    color: var(--brand);
+    font-weight: 600;
+  }
+  .price-label {
+    font-size: 12px;
+    color: var(--text-light);
+    margin-right: 2px;
+  }
+  .item-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  .tag-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    font-size: 11px;
+    background: var(--brand-light);
+    color: var(--brand);
+    border-radius: 20px;
+    padding: 2px 7px;
+    font-weight: 500;
+  }
+
+  /* ── Modal ── */
+  #modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: rgba(0,0,0,0.55);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.22s;
+  }
+  #modal-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  #modal {
+    background: var(--bg);
+    border-radius: 20px 20px 0 0;
+    width: 100%;
+    max-width: 375px;
+    max-height: 88vh;
+    overflow-y: auto;
+    transform: translateY(100%);
+    transition: transform 0.26s cubic-bezier(0.32, 0.72, 0, 1);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  #modal-overlay.open #modal {
+    transform: translateY(0);
+  }
+  .modal-img-wrap {
+    width: 100%;
+    height: 220px;
+    background: var(--brand-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px 20px 0 0;
+    overflow: hidden;
+    touch-action: pinch-zoom;
+    font-size: 96px;
+    line-height: 1;
+  }
+  .modal-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .modal-body {
+    padding: 20px 20px 28px;
+  }
+  .modal-name {
+    font-size: 21px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--text-dark);
+  }
+  .modal-prices {
+    margin-bottom: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .modal-price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    background: var(--brand-light);
+    border-radius: 8px;
+  }
+  .modal-price-label {
+    font-size: 14px;
+    color: var(--text-mid);
+  }
+  .modal-price-val {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--brand);
+  }
+  .modal-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 12px;
+  }
+  .modal-tag-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 12px;
+    background: var(--brand-light);
+    color: var(--brand);
+    border-radius: 20px;
+    padding: 4px 10px;
+    font-weight: 500;
+  }
+  .modal-desc, .modal-note {
+    font-size: 13px;
+    color: var(--text-mid);
+    line-height: 1.6;
+    margin-top: 8px;
+  }
+  .modal-note {
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid var(--border);
+    padding-top: 8px;
+    margin-top: 8px;
+  }
+  .modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.35);
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    z-index: 10;
+  }
+  .modal-img-container {
+    position: relative;
+  }
+
+  /* ── Footer ── */
+  #footer {
+    text-align: center;
+    padding: 24px 16px 40px;
+    font-size: 12px;
+    color: var(--text-light);
+    border-top: 1px solid var(--border);
+    line-height: 1.8;
+  }
+
+  /* sweetness note */
+  #sweetness-note {
+    margin: 0 16px 0;
+    padding: 10px 14px;
+    background: #fffbf0;
+    border: 1px solid #ffe4a0;
+    border-radius: 10px;
+    font-size: 12px;
+    color: #7a5a00;
+    line-height: 1.7;
+  }
+</style>
+</head>
+<body>
+
+<!-- Language Bar -->
+<div id="lang-bar">
+  <button class="lang-btn active" data-lang="zh" onclick="setLang('zh')">繁中</button>
+  <button class="lang-btn" data-lang="en" onclick="setLang('en')">English</button>
+  <button class="lang-btn" data-lang="ja" onclick="setLang('ja')">日本語</button>
+  <button class="lang-btn" data-lang="ko" onclick="setLang('ko')">한국어</button>
+</div>
+
+<!-- Hero -->
+<div id="hero">
+  <div class="hero-img-wrap">
+    <div class="hero-placeholder">☀️</div>
+  </div>
+  <div class="store-name" data-i18n="store_name">太陽早餐店</div>
+  <div class="store-info">
+    <div class="info-row">
+      <span class="info-icon">📍</span>
+      <span data-i18n="address">台11線5號</span>
+    </div>
+    <div class="info-row">
+      <span class="info-icon">📞</span>
+      <a href="tel:8825252">8825252</a>
+    </div>
+  </div>
+</div>
+
+<!-- Category Tab Bar -->
+<div id="cat-bar"></div>
+
+<!-- Sweetness Note -->
+<div id="sweetness-note" data-i18n-key="sweetness"></div>
+
+<!-- Menu Sections -->
+<div id="menu-body"></div>
+
+<!-- Footer -->
+<div id="footer" data-i18n-key="footer"></div>
+
+<!-- Modal -->
+<div id="modal-overlay" onclick="closeModal(event)">
+  <div id="modal">
+    <div class="modal-img-container">
+      <div class="modal-img-wrap" id="modal-img"></div>
+      <button class="modal-close" onclick="closeModalDirect()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-name" id="modal-name"></div>
+      <div class="modal-prices" id="modal-prices"></div>
+      <div class="modal-tags" id="modal-tags"></div>
+      <div class="modal-desc" id="modal-desc"></div>
+      <div class="modal-note" id="modal-note"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── Data ──────────────────────────────────────────────────────────────────
+
+const categories = [
+  { id: 'tea',      names: { zh: '找好茶', en: 'Tea Selection', ja: '良いお茶を探す', ko: '좋은 차 찾기' } },
+  { id: 'texture',  names: { zh: '找口感', en: 'Texture & Pearls', ja: '食感を探す', ko: '식감 찾기' } },
+  { id: 'milk_tea', names: { zh: '找奶茶', en: 'Milk Tea', ja: 'ミルクティーを探す', ko: '밀크티 찾기' } },
+  { id: 'fresh',    names: { zh: '找新鮮', en: 'Fresh Squeeze', ja: 'フレッシュ搾り', ko: '신선 착즙' } },
+  { id: 'coffee',   names: { zh: '找咖啡', en: 'Coffee', ja: 'コーヒー', ko: '커피' } },
+  { id: 'latte',    names: { zh: '紅茶拿鐵', en: 'Black Tea Latte', ja: '紅茶ラテ', ko: '홍차 라떼' } },
+];
+
+const tagMap = {
+  R:  { icon: '⭐', zh: '本店推薦', en: 'Recommended',             ja: 'おすすめ',        ko: '추천' },
+  1:  { icon: '🌶️', zh: '小辣',    en: 'Mild Spicy',              ja: '少し辛い',        ko: '약간 매운' },
+  2:  { icon: '🌶️🌶️', zh: '中辣', en: 'Medium Spicy',            ja: '中辛',            ko: '보통 매운' },
+  3:  { icon: '🔥', zh: '大辣',    en: 'Very Spicy',              ja: '激辛',            ko: '매우 매운' },
+  P:  { icon: '🐷', zh: '含豬肉',  en: 'Contains Pork',           ja: '豚肉入り',        ko: '돼지고기 포함' },
+  B:  { icon: '🐂', zh: '含牛肉',  en: 'Contains Beef',           ja: '牛肉入り',        ko: '소고기 포함' },
+  L:  { icon: '🐑', zh: '含羊肉',  en: 'Contains Lamb',           ja: 'ラム入り',        ko: '양고기 포함' },
+  V:  { icon: '🥬', zh: '素食',    en: 'Vegetarian',              ja: 'ベジタリアン',    ko: '채식' },
+  V5: { icon: '🧄', zh: '五辛素',  en: 'Plant-based w/ Allium',   ja: '五葷あり精進',    ko: '오신채 채식' },
+  H:  { icon: '☪️', zh: '清真認證', en: 'Halal Certified',        ja: 'ハラール認証',    ko: '할랄 인증' },
+};
+
+const i18n = {
+  store_name: { zh: '太陽早餐店', en: 'Sun Breakfast House', ja: '太陽朝食店', ko: '태양 조식당' },
+  address:    { zh: '台11線5號', en: 'No.5, Hwy 11', ja: '台11線5号', ko: '타이완 11호선 5번' },
+  sweetness: {
+    zh: '正常甜（標準）不要太甜（9分甜）少甜（7分甜）半甜（5分甜）微甜（3分甜）無糖（健康）',
+    en: 'Full Sugar · Less Sugar (90%) · Mild Sugar (70%) · Half Sugar (50%) · Less Sweet (30%) · No Sugar',
+    ja: '標準甘さ・やや甘め(9)・やや控えめ(7)・半分(5)・甘さ控えめ(3)・砂糖なし',
+    ko: '정상 단맛 · 덜 달게(9분) · 약간 달게(7분) · 반달게(5분) · 조금달게(3분) · 무가당',
+  },
+  market: { zh: '時價', en: 'Market Price', ja: '時価', ko: '시가' },
+  footer: {
+    zh: '© 太陽早餐店 · 台11線5號 · Tel: 8825252\n價格含稅，如有更動以現場公告為準',
+    en: '© Sun Breakfast House · No.5, Hwy 11 · Tel: 8825252\nPrices include tax. Subject to change without notice.',
+    ja: '© 太陽朝食店 · 台11線5号 · Tel: 8825252\n税込価格。価格は予告なく変更する場合があります。',
+    ko: '© 태양 조식당 · 타이완 11호선 5번 · Tel: 8825252\n가격은 부가세 포함. 사전 공지 없이 변경될 수 있습니다.',
+  },
+};
+
+const menuItems = [
+  // ── 找好茶 ──
+  { id:'tea-001', category:'tea', names:{zh:'茉莉綠茶',en:'Jasmine Green Tea',ja:'ジャスミン緑茶',ko:'자스민 녹차'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:20},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:25}], image:null, emoji:'🍵', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'tea-002', category:'tea', names:{zh:'阿薩姆紅茶',en:'Assam Black Tea',ja:'アッサム紅茶',ko:'아삼 홍차'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:20},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:25}], image:null, emoji:'🍵', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'tea-003', category:'tea', names:{zh:'四季春茶',en:'Four Seasons Spring Tea',ja:'四季春茶',ko:'사계춘차'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:20},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:25}], image:null, emoji:'🌸', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'tea-004', category:'tea', names:{zh:'凍頂烏龍綠',en:'Dong Ding Oolong Green',ja:'凍頂烏龍グリーン',ko:'동정 우롱 그린'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:20},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:25}], image:null, emoji:'🍵', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'tea-005', category:'tea', names:{zh:'文山清茶',en:'Wenshan Light Tea',ja:'文山清茶',ko:'원산 청차'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:25},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:35}], image:null, emoji:'🍵', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'tea-006', category:'tea', names:{zh:'檸檬綠',en:'Lemon Green Tea',ja:'レモン緑茶',ko:'레몬 녹차'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:30},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:45}], image:null, emoji:'🍋', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'tea-007', category:'tea', names:{zh:'檸檬青',en:'Lemon Green',ja:'レモングリーン',ko:'레몬 그린'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:30},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:45}], image:null, emoji:'🍋', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'tea-008', category:'tea', names:{zh:'梅果綠',en:'Plum Fruit Green Tea',ja:'梅フルーツ緑茶',ko:'매실 과일 녹차'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:30},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:45}], image:null, emoji:'🍑', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'tea-009', category:'tea', names:{zh:'蜂蜜綠',en:'Honey Green Tea',ja:'ハニー緑茶',ko:'꿀 녹차'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:30},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:45}], image:null, emoji:'🍯', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'tea-010', category:'tea', names:{zh:'桔子綠',en:'Tangerine Green Tea',ja:'みかん緑茶',ko:'귤 녹차'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:30},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:45}], image:null, emoji:'🍊', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'tea-011', category:'tea', names:{zh:'8冰茶',en:'8 Iced Tea',ja:'8アイスティー',ko:'8 아이스티'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:30},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:45}], image:null, emoji:'🧊', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'tea-012', category:'tea', names:{zh:'養樂多綠',en:'Yakult Green Tea',ja:'ヤクルト緑茶',ko:'야쿠르트 녹차'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:35},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:50}], image:null, emoji:'🍵', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'tea-013', category:'tea', names:{zh:'芒果青茶',en:'Mango Green Tea',ja:'マンゴー緑茶',ko:'망고 녹차'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:30},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:45}], image:null, emoji:'🥭', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'tea-014', category:'tea', names:{zh:'冰淇淋紅茶',en:'Ice Cream Black Tea',ja:'アイスクリーム紅茶',ko:'아이스크림 홍차'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:30},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:45}], image:null, emoji:'🍦', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'tea-015', category:'tea', names:{zh:'古早味紅茶',en:'Old-Style Black Tea',ja:'昔ながらの紅茶',ko:'옛날 홍차'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:30},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:45}], image:null, emoji:'🍵', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'tea-016', category:'tea', names:{zh:'蔓越莓紅茶',en:'Cranberry Black Tea',ja:'クランベリー紅茶',ko:'크랜베리 홍차'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:30},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:45}], image:null, emoji:'🍵', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'tea-017', category:'tea', names:{zh:'鮮柚綠',en:'Fresh Grapefruit Green Tea',ja:'フレッシュザボン緑茶',ko:'생 자몽 녹차'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:40},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:55}], image:null, emoji:'🍋', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'tea-018', category:'tea', names:{zh:'鮮柚百香綠',en:'Grapefruit Passion Fruit Green Tea',ja:'ザボンパッション緑茶',ko:'자몽 패션프루트 녹차'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:40},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:55}], image:null, emoji:'🍋', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  // ── 找口感 ──
+  { id:'texture-001', category:'texture', names:{zh:'波霸紅綠青鳥',en:'Boba Red & Green Bird',ja:'タピオカ紅緑青鳥',ko:'버블 레드그린 블루버드'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:25},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:35}], image:null, emoji:'🧋', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'texture-002', category:'texture', names:{zh:'波霸奶綠',en:'Boba Milk Green Tea',ja:'タピオカミルク緑茶',ko:'버블 밀크 녹차'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:30},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:45}], image:null, emoji:'🧋', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'texture-003', category:'texture', names:{zh:'波霸奶茶',en:'Bubble Milk Tea',ja:'タピオカミルクティー',ko:'버블 밀크티'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:30},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:45}], image:null, emoji:'🧋', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'texture-004', category:'texture', names:{zh:'珍珠紅綠青鳥',en:'Pearl Red & Green Bird',ja:'パール紅緑青鳥',ko:'펄 레드그린 블루버드'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:25},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:35}], image:null, emoji:'🧋', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'texture-005', category:'texture', names:{zh:'珍珠奶綠',en:'Pearl Milk Green Tea',ja:'パールミルク緑茶',ko:'펄 밀크 녹차'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:30},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:45}], image:null, emoji:'🧋', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'texture-006', category:'texture', names:{zh:'珍珠奶茶',en:'Pearl Milk Tea',ja:'パールミルクティー',ko:'펄 밀크티'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:30},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:45}], image:null, emoji:'🧋', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'texture-007', category:'texture', names:{zh:'椰果奶茶',en:'Coconut Jelly Milk Tea',ja:'ナタデココミルクティー',ko:'코코넛 젤리 밀크티'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:30},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:45}], image:null, emoji:'🧋', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'texture-008', category:'texture', names:{zh:'布丁奶茶',en:'Pudding Milk Tea',ja:'プリンミルクティー',ko:'푸딩 밀크티'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:40},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:60}], image:null, emoji:'🍮', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'texture-009', category:'texture', names:{zh:'仙草奶凍',en:'Grass Jelly Milk',ja:'仙草ミルクゼリー',ko:'선초 밀크 젤리'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:30},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:45}], image:null, emoji:'🧋', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'texture-010', category:'texture', names:{zh:'愛玉冰茶',en:'Aiyu Jelly Iced Tea',ja:'アイユゼリーアイスティー',ko:'아이유 젤리 아이스티'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:35},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:50}], image:null, emoji:'🧊', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  // ── 找奶茶 ──
+  { id:'milk_tea-001', category:'milk_tea', names:{zh:'奶茶',en:'Milk Tea',ja:'ミルクティー',ko:'밀크티'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:30},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:45}], image:null, emoji:'🥛', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'milk_tea-002', category:'milk_tea', names:{zh:'奶綠',en:'Milk Green Tea',ja:'ミルク緑茶',ko:'밀크 녹차'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:30},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:45}], image:null, emoji:'🥛', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'milk_tea-003', category:'milk_tea', names:{zh:'紅茶瑪奇朵',en:'Black Tea Macchiato',ja:'紅茶マキアート',ko:'홍차 마끼아또'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:30},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:45}], image:null, emoji:'🥛', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'milk_tea-004', category:'milk_tea', names:{zh:'烏龍奶茶',en:'Oolong Milk Tea',ja:'ウーロンミルクティー',ko:'우롱 밀크티'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:30},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:45}], image:null, emoji:'🥛', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'milk_tea-005', category:'milk_tea', names:{zh:'黑糖奶茶',en:'Brown Sugar Milk Tea',ja:'黒糖ミルクティー',ko:'흑당 밀크티'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:35},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:50}], image:null, emoji:'🥛', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'milk_tea-006', category:'milk_tea', names:{zh:'焦糖奶茶',en:'Caramel Milk Tea',ja:'キャラメルミルクティー',ko:'카라멜 밀크티'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:35},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:50}], image:null, emoji:'🥛', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'milk_tea-007', category:'milk_tea', names:{zh:'榛果奶茶',en:'Hazelnut Milk Tea',ja:'ヘーゼルナッツミルクティー',ko:'헤이즐넛 밀크티'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:35},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:50}], image:null, emoji:'🥛', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'milk_tea-008', category:'milk_tea', names:{zh:'阿華田',en:'Ovaltine',ja:'オバルティン',ko:'오발틴'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:35},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:50}], image:null, emoji:'🥛', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'milk_tea-009', category:'milk_tea', names:{zh:'可可芭薈',en:'Cocoa Aloe Vera',ja:'ココアアロエ',ko:'코코아 알로에'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:40},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:55}], image:null, emoji:'🥛', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  // ── 找新鮮 ──
+  { id:'fresh-001', category:'fresh', names:{zh:'檸檬汁',en:'Lemon Juice',ja:'レモンジュース',ko:'레몬 주스'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:35},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:50}], image:null, emoji:'🍋', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'fresh-002', category:'fresh', names:{zh:'金桔檸檬',en:'Kumquat Lemon',ja:'金柑レモン',ko:'금귤 레몬'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:35},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:50}], image:null, emoji:'🍋', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'fresh-003', category:'fresh', names:{zh:'檸檬蔓越莓',en:'Lemon Cranberry',ja:'レモンクランベリー',ko:'레몬 크랜베리'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:35},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:50}], image:null, emoji:'🍋', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'fresh-004', category:'fresh', names:{zh:'檸檬梅子',en:'Lemon Plum',ja:'レモン梅',ko:'레몬 매실'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:40},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:55}], image:null, emoji:'🍋', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'fresh-005', category:'fresh', names:{zh:'檸檬蜜',en:'Honey Lemon',ja:'ハニーレモン',ko:'꿀 레몬'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:45},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:65}], image:null, emoji:'🍯', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'fresh-006', category:'fresh', names:{zh:'檸檬養樂多',en:'Lemon Yakult',ja:'レモンヤクルト',ko:'레몬 야쿠르트'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:45},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:65}], image:null, emoji:'🍋', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'fresh-007', category:'fresh', names:{zh:'鮮桔茶',en:'Fresh Tangerine Tea',ja:'フレッシュみかん茶',ko:'생 귤차'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:40},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:55}], image:null, emoji:'🍊', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'fresh-008', category:'fresh', names:{zh:'蟹茶',en:'Crab Apple Tea',ja:'カニリンゴ茶',ko:'아그배 차'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:30},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:45}], image:null, emoji:'🦀', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'fresh-009', category:'fresh', names:{zh:'8冰茶',en:'8 Iced Tea',ja:'8アイスティー',ko:'8 아이스티'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:30},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:45}], image:null, emoji:'🧊', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'fresh-010', category:'fresh', names:{zh:'蔓越莓汁',en:'Cranberry Juice',ja:'クランベリージュース',ko:'크랜베리 주스'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:30},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:45}], image:null, emoji:'🍒', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'fresh-011', category:'fresh', names:{zh:'葡萄柚汁',en:'Grapefruit Juice',ja:'グレープフルーツジュース',ko:'자몽 주스'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:40},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:55}], image:null, emoji:'🍊', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'fresh-012', category:'fresh', names:{zh:'葡萄柚多多',en:'Grapefruit Yakult',ja:'グレープフルーツヤクルト',ko:'자몽 야쿠르트'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:45},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:65}], image:null, emoji:'🍊', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'fresh-013', category:'fresh', names:{zh:'百香多多',en:'Passion Fruit Yakult',ja:'パッションフルーツヤクルト',ko:'패션프루트 야쿠르트'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:45},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:65}], image:null, emoji:'🍈', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'fresh-014', category:'fresh', names:{zh:'鮮柚百香果',en:'Fresh Grapefruit Passion Fruit',ja:'フレッシュザボンパッションフルーツ',ko:'생 자몽 패션프루트'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:40},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:55}], image:null, emoji:'🍋', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  // ── 找咖啡 ──
+  { id:'coffee-001', category:'coffee', names:{zh:'冰咖啡',en:'Iced Coffee',ja:'アイスコーヒー',ko:'아이스 커피'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:45},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:65}], image:null, emoji:'☕', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'coffee-002', category:'coffee', names:{zh:'咖啡拿鐵',en:'Café Latte',ja:'カフェラテ',ko:'카페 라떼'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:45},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:65}], image:null, emoji:'☕', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'coffee-003', category:'coffee', names:{zh:'漂浮冰咖啡',en:'Ice Cream Float Coffee',ja:'フロートアイスコーヒー',ko:'플로트 아이스 커피'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:50},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:70}], image:null, emoji:'☕', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  // ── 紅茶拿鐵 ──
+  { id:'latte-001', category:'latte', names:{zh:'紅茶拿鐵',en:'Black Tea Latte',ja:'紅茶ラテ',ko:'홍차 라떼'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:40},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:55}], image:null, emoji:'🍵', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'latte-002', category:'latte', names:{zh:'黑糖紅茶拿鐵',en:'Brown Sugar Black Tea Latte',ja:'黒糖紅茶ラテ',ko:'흑당 홍차 라떼'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:45},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:65}], image:null, emoji:'🍵', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'latte-003', category:'latte', names:{zh:'焦糖紅茶拿鐵',en:'Caramel Black Tea Latte',ja:'キャラメル紅茶ラテ',ko:'카라멜 홍차 라떼'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:45},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:65}], image:null, emoji:'🍵', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'latte-004', category:'latte', names:{zh:'榛果紅茶拿鐵',en:'Hazelnut Black Tea Latte',ja:'ヘーゼルナッツ紅茶ラテ',ko:'헤이즐넛 홍차 라떼'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:45},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:65}], image:null, emoji:'🍵', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'latte-005', category:'latte', names:{zh:'阿華田拿鐵',en:'Ovaltine Latte',ja:'オバルティンラテ',ko:'오발틴 라떼'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:45},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:65}], image:null, emoji:'🍵', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'latte-006', category:'latte', names:{zh:'可可芭薈拿鐵',en:'Cocoa Aloe Latte',ja:'ココアアロエラテ',ko:'코코아 알로에 라떼'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:50},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:70}], image:null, emoji:'🍵', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+];
+
+// ── State ──────────────────────────────────────────────────────────────────
+let currentLang = localStorage.getItem('menu_lang') || 'zh';
+let savedScrollY = 0;
+
+// ── Render ────────────────────────────────────────────────────────────────
+function t(obj) {
+  if (typeof obj === 'string') return obj;
+  return obj[currentLang] || obj['zh'] || '';
+}
+
+function renderCatBar() {
+  const bar = document.getElementById('cat-bar');
+  bar.innerHTML = categories.map(cat => `
+    <button class="cat-tab" data-cat="${cat.id}" onclick="scrollToSection('${cat.id}')">${t(cat.names)}</button>
+  `).join('');
+}
+
+function renderMenu() {
+  const body = document.getElementById('menu-body');
+  body.innerHTML = categories.map(cat => {
+    const items = menuItems.filter(i => i.category === cat.id);
+    if (!items.length) return '';
+    return `
+      <div class="menu-section" id="section-${cat.id}" data-screen-label="${t(cat.names)}">
+        <div class="section-header">${t(cat.names)}</div>
+        <div class="item-list">
+          ${items.map(item => renderCard(item)).join('')}
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function renderCard(item) {
+  const thumb = item.image
+    ? `<img src="images/${item.image}" alt="${t(item.names)}" loading="lazy" />`
+    : `${item.emoji}`;
+  const priceHTML = item.price.map(p => {
+    const val = p.value === 'market' ? t(i18n.market) : `NT$${p.value}`;
+    if (p.label && p.label.zh) {
+      return `<span class="price-chip"><span class="price-label">${t(p.label)}</span>${val}</span>`;
+    }
+    return `<span class="price-chip">${val}</span>`;
+  }).join('');
+  const tagsHTML = item.tags.map(tag => {
+    const td = tagMap[tag];
+    if (!td) return '';
+    return `<span class="tag-badge">${td.icon} ${td[currentLang]||td.zh}</span>`;
+  }).join('');
+  return `
+    <div class="item-card" onclick="openModal('${item.id}')">
+      <div class="item-thumb">${thumb}</div>
+      <div class="item-body">
+        <div class="item-name">${t(item.names)}</div>
+        <div class="item-price-row">${priceHTML}</div>
+        ${tagsHTML ? `<div class="item-tags">${tagsHTML}</div>` : ''}
+      </div>
+    </div>
+  `;
+}
+
+function renderI18n() {
+  document.querySelectorAll('[data-i18n="store_name"]').forEach(el => {
+    el.textContent = t(i18n.store_name);
+  });
+  document.querySelectorAll('[data-i18n="address"]').forEach(el => {
+    el.textContent = t(i18n.address);
+  });
+  const sw = document.getElementById('sweetness-note');
+  if (sw) sw.textContent = t(i18n.sweetness);
+  const ft = document.getElementById('footer');
+  if (ft) ft.innerHTML = t(i18n.footer).replace(/\n/g, '<br>');
+  document.title = t(i18n.store_name) + ' 菜單';
+}
+
+function updateActiveCatTab() {
+  const sections = categories.map(c => document.getElementById('section-' + c.id)).filter(Boolean);
+  let current = sections[0];
+  const offset = 100;
+  sections.forEach(sec => {
+    if (sec.getBoundingClientRect().top <= offset) current = sec;
+  });
+  document.querySelectorAll('.cat-tab').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.cat === current.id.replace('section-', ''));
+  });
+}
+
+// ── Lang Switch ───────────────────────────────────────────────────────────
+function setLang(lang) {
+  currentLang = lang;
+  localStorage.setItem('menu_lang', lang);
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.lang === lang);
+  });
+  renderI18n();
+  renderCatBar();
+  renderMenu();
+}
+
+// ── Cat Scroll ────────────────────────────────────────────────────────────
+function scrollToSection(catId) {
+  const el = document.getElementById('section-' + catId);
+  if (!el) return;
+  const offset = document.getElementById('lang-bar').offsetHeight
+               + document.getElementById('cat-bar').offsetHeight;
+  const top = el.getBoundingClientRect().top + window.scrollY - offset - 4;
+  window.scrollTo({ top, behavior: 'smooth' });
+}
+
+// ── Modal ─────────────────────────────────────────────────────────────────
+function openModal(itemId) {
+  const item = menuItems.find(i => i.id === itemId);
+  if (!item) return;
+  savedScrollY = window.scrollY;
+
+  const imgWrap = document.getElementById('modal-img');
+  if (item.image) {
+    imgWrap.innerHTML = `<img src="images/${item.image}" alt="${t(item.names)}" />`;
+  } else {
+    imgWrap.innerHTML = item.emoji;
+  }
+
+  document.getElementById('modal-name').textContent = t(item.names);
+
+  const pricesEl = document.getElementById('modal-prices');
+  pricesEl.innerHTML = item.price.map(p => {
+    const val = p.value === 'market' ? t(i18n.market) : `NT$${p.value}`;
+    const label = (p.label && p.label.zh) ? t(p.label) : '';
+    return `
+      <div class="modal-price-row">
+        <span class="modal-price-label">${label || '─'}</span>
+        <span class="modal-price-val">${val}</span>
+      </div>
+    `;
+  }).join('');
+
+  const tagsEl = document.getElementById('modal-tags');
+  tagsEl.innerHTML = item.tags.map(tag => {
+    const td = tagMap[tag];
+    if (!td) return '';
+    return `<span class="modal-tag-badge">${td.icon} ${td[currentLang]||td.zh}</span>`;
+  }).join('');
+
+  const desc = t(item.desc);
+  const note = t(item.note);
+  const descEl = document.getElementById('modal-desc');
+  const noteEl = document.getElementById('modal-note');
+  descEl.textContent = desc;
+  descEl.style.display = desc ? '' : 'none';
+  noteEl.textContent = note;
+  noteEl.style.display = note ? '' : 'none';
+
+  document.getElementById('modal-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal(e) {
+  if (e.target === document.getElementById('modal-overlay')) {
+    closeModalDirect();
+  }
+}
+
+function closeModalDirect() {
+  document.getElementById('modal-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+  window.scrollTo({ top: savedScrollY, behavior: 'instant' });
+}
+
+// ── Init ──────────────────────────────────────────────────────────────────
+function init() {
+  renderI18n();
+  renderCatBar();
+  renderMenu();
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.lang === currentLang);
+  });
+  window.addEventListener('scroll', updateActiveCatTab, { passive: true });
+}
+
+document.addEventListener('DOMContentLoaded', init);
+</script>
+</body>
+</html>
