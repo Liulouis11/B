@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>純粹愛大海 · Boutique Ocean Inn</title>
+  <meta name="description" content="花蓮豐濱海景民宿，千坪草地、面海浴缸、一天只接待一組旅人。" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Noto+Sans+TC:wght@300;400;500&family=Noto+Serif+TC:wght@300;400;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="src/style.css" />
+</head>
+<body>
+
+  <!-- ─── NAV ─────────────────────────────────────────────────── -->
+  <nav id="nav">
+    <a class="nav-logo" href="#">純粹愛大海 · Boutique Ocean Inn</a>
+    <ul class="nav-links">
+      <li><a href="#story">關於這裡</a></li>
+      <li><a href="#rooms">房型</a></li>
+      <li><a href="#features">特色</a></li>
+      <li><a href="#gallery">照片</a></li>
+      <li><a href="#pricing">訂房</a></li>
+      <li><a href="#info">資訊</a></li>
+    </ul>
+    <a class="nav-book" href="#pricing">立即預約</a>
+    <button class="nav-menu-btn" id="menuBtn" aria-label="開啟選單">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ─── HERO ─────────────────────────────────────────────────── -->
+  <section id="hero">
+    <div class="hero-texture"></div>
+    <div class="hero-noise"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">花蓮豐濱 · Hualien, Taiwan</p>
+      <h1 class="hero-title-zh">純粹愛大海</h1>
+      <p class="hero-title-en">Boutique Ocean Inn</p>
+      <p class="hero-subtitle">
+        日光、草地、大海<br />
+        一次只屬於你們的千坪假期
+      </p>
+      <div class="hero-cta">
+        <a class="btn-primary" href="#rooms">探索房型</a>
+        <a class="btn-ghost" href="#story">旅宿故事</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <div class="hero-scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ─── STATS STRIP ──────────────────────────────────────────── -->
+  <section id="intro">
+    <div class="intro-strip">
+      <div class="intro-stat">
+        <span class="intro-stat-num">千坪</span>
+        <span class="intro-stat-label">專屬戶外草地</span>
+      </div>
+      <div class="intro-stat">
+        <span class="intro-stat-num">3</span>
+        <span class="intro-stat-label">景觀房型</span>
+      </div>
+      <div class="intro-stat">
+        <span class="intro-stat-num">1</span>
+        <span class="intro-stat-label">每日僅接一組旅人</span>
+      </div>
+      <div class="intro-stat">
+        <span class="intro-stat-num">180°</span>
+        <span class="intro-stat-label">無遮擋太平洋視野</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── STORY ─────────────────────────────────────────────────── -->
+  <section id="story">
+    <div class="container">
+      <div class="story-intro">
+        <p class="eyebrow" style="text-align:center;">關於這裡 · About</p>
+        <div class="divider divider--center"></div>
+        <h2 class="story-heading-center">
+          來這裡，純粹是愛上<br />眼前的大海。
+        </h2>
+        <p class="story-lead">
+          更棒的是⋯⋯如果你轉個身，後面還有青翠的大山陪著你。
+        </p>
+        <p class="story-body-center">
+          在這裡，你可以放鬆地與朋友、家人一起烹煮小酌、數星星、賞月亮。<br />
+          前有無盡的太平洋，後有靜默的海岸山脈，中間是屬於你們的千坪草地與時光。
+        </p>
+        <p class="story-quote">
+          "The ocean in front, the mountains behind — everything in between is yours."
+        </p>
+      </div>
+      <div class="story-image-row">
+        <div class="story-img-wide">
+          <div class="img-placeholder">海景草地<br />Ocean &amp; lawn view</div>
+        </div>
+        <div class="story-img-tall">
+          <div class="img-placeholder">山景<br />Mountain view</div>
+        </div>
+        <div class="story-img-sq">
+          <div class="img-placeholder">夜晚星空<br />Starry night</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── ROOMS ─────────────────────────────────────────────────── -->
+  <section id="rooms">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">房型介紹 · Rooms</p>
+        <div class="divider divider--center"></div>
+        <h2 class="section-title">三間房，三種海景時光</h2>
+        <p class="section-sub">每間房皆面向太平洋，配備浴缸，以花蓮意象為名，以自然素材為語言。</p>
+      </div>
+      <div class="rooms-grid">
+
+        <div class="room-card">
+          <div class="room-img">
+            <div class="img-placeholder">新社梯田<br />Ocean-view room</div>
+          </div>
+          <div class="room-body">
+            <p class="room-name-zh">新社梯田</p>
+            <p class="room-name-en">Xinshe Terrace Double</p>
+            <p class="room-desc">
+              一整面落地玻璃窗接壤綠草地，開放式潔白浴缸引入蔚藍海景時光。最適合情侶相擁、靜享私密兩人世界。
+            </p>
+            <div class="room-tags">
+              <span class="room-tag">雙人房</span>
+              <span class="room-tag">海景</span>
+              <span class="room-tag">浴缸</span>
+              <span class="room-tag">1F</span>
+            </div>
+            <p class="room-price">從 NT<span>$9,000</span> /晚</p>
+          </div>
+        </div>
+
+        <div class="room-card">
+          <div class="room-img">
+            <div class="img-placeholder">跳浪樓中樓<br />Loft room</div>
+          </div>
+          <div class="room-body">
+            <p class="room-name-zh">跳浪</p>
+            <p class="room-name-en">Jumping Waves Loft</p>
+            <p class="room-desc">
+              二樓面海的窗是更純粹的藍，雙層高大的香杉木材床架撲鼻芳香。樓中樓設計，帶上大孩子一起感受最貼近浪頭的視野。
+            </p>
+            <div class="room-tags">
+              <span class="room-tag">四人房</span>
+              <span class="room-tag">海景</span>
+              <span class="room-tag">浴缸</span>
+              <span class="room-tag">樓中樓</span>
+            </div>
+            <p class="room-price">從 NT<span>$9,000</span> /晚</p>
+          </div>
+        </div>
+
+        <div class="room-card">
+          <div class="room-img">
+            <div class="img-placeholder">布朗尼<br />Family suite</div>
+          </div>
+          <div class="room-body">
+            <p class="room-name-zh">布朗尼</p>
+            <p class="room-name-en">Brownie Family Suite</p>
+            <p class="room-desc">
+              發想自主人一家手作甜點的溫馨，寬敞乾濕分離衛浴、圓形面海浴缸，適合闔家大小，也適合一群姊妹同歡。
+            </p>
+            <div class="room-tags">
+              <span class="room-tag">四人房</span>
+              <span class="room-tag">海景</span>
+              <span class="room-tag">圓形浴缸</span>
+              <span class="room-tag">1F</span>
+            </div>
+            <p class="room-price">從 NT<span>$9,000</span> /晚</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FEATURES ──────────────────────────────────────────────── -->
+  <section id="features">
+    <div class="container">
+      <div class="features-layout">
+        <div class="features-left">
+          <p class="eyebrow">旅宿特色 · Highlights</p>
+          <div class="divider"></div>
+          <h2 class="section-title" style="text-align:left; margin-bottom:3rem;">
+            在這裡，<br />什麼都不必<br />多想。
+          </h2>
+          <div class="features-img-stack">
+            <div class="features-img-a">
+              <div class="img-placeholder">戶外草地<br />Outdoor lawn</div>
+            </div>
+            <div class="features-img-b">
+              <div class="img-placeholder">廚房<br />Kitchen</div>
+            </div>
+          </div>
+        </div>
+        <div class="features-right">
+          <div class="feature-item">
+            <p class="feature-num">01</p>
+            <h3 class="feature-title">千坪草地，專屬一組旅人</h3>
+            <p class="feature-desc">每日只接待你們一組。整片草坡、整棟建築、整個太平洋的視野，從清晨到日落，都是你們的私人世界。</p>
+          </div>
+          <div class="feature-item">
+            <p class="feature-num">02</p>
+            <h3 class="feature-title">面海中島廚房，一起料理早晨</h3>
+            <p class="feature-desc">開放式寬敞廚房，備有主人精選食材——貝果、鮮肉、果醬、飲品。大家一起下廚，讓早餐成為假期最美的儀式。</p>
+          </div>
+          <div class="feature-item">
+            <p class="feature-num">03</p>
+            <h3 class="feature-title">每間房皆有面海浴缸</h3>
+            <p class="feature-desc">泡澡的同時，讓視線穿越窗欄，落在無盡的太平洋藍。卸下平日疲憊，讓海洗滌一切。</p>
+          </div>
+          <div class="feature-item">
+            <p class="feature-num">04</p>
+            <h3 class="feature-title">台11線旁，直面太平洋</h3>
+            <p class="feature-desc">沿台11線直開，彎上小坡，眼前就是沒有任何遮擋的湛藍。開放式大木長桌邊，邊吹風、邊談笑，是這裡靈魂所在。</p>
+          </div>
+          <div class="feature-item">
+            <p class="feature-num">05</p>
+            <h3 class="feature-title">Long Stay 續住方案</h3>
+            <p class="feature-desc">住得越久，房價越優惠。主人希望你能將旅行慢下來，好好享受在日光、草地與大海間迷人的生活節奏。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── GALLERY ────────────────────────────────────────────────── -->
+  <section id="gallery">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">影像記憶 · Gallery</p>
+        <div class="divider divider--center" style="background:rgba(247,243,236,0.15);"></div>
+        <h2 class="section-title">光與海與家</h2>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-cell gc1">
+          <div class="img-placeholder">海景全景<br />Panoramic ocean view</div>
+        </div>
+        <div class="gallery-cell gc2">
+          <div class="img-placeholder">戶外用餐區<br />Outdoor dining area</div>
+        </div>
+        <div class="gallery-cell gc3">
+          <div class="img-placeholder">浴缸細節<br />Bathtub detail</div>
+        </div>
+        <div class="gallery-cell gc4">
+          <div class="img-placeholder">早餐時光<br />Breakfast scene</div>
+        </div>
+        <div class="gallery-cell gc5">
+          <div class="img-placeholder">草地夕照<br />Sunset on the lawn</div>
+        </div>
+      </div>
+      <p class="gallery-caption">照片版權所有 · 所有照片於旅宿實地拍攝</p>
+    </div>
+  </section>
+
+  <!-- ─── PRICING ────────────────────────────────────────────────── -->
+  <section id="pricing">
+    <div class="container">
+
+      <div class="section-header">
+        <p class="eyebrow">訂房資訊 · Booking</p>
+        <div class="divider divider--center"></div>
+        <h2 class="section-title">入住說明與價格</h2>
+        <p class="section-sub">
+          一天接待一組客人（1–10人），適合停留 2 晚以上，以房間數計價。<br />
+          提供旅人一個有完善廚房的渡假生活空間。
+        </p>
+      </div>
+
+      <!-- 預訂前須知 -->
+      <div class="booking-section-title">
+        <p class="eyebrow">預訂前須知 · Before You Book</p>
+        <div class="divider"></div>
+      </div>
+
+      <div class="notice-grid">
+        <div class="notice-item">
+          <span class="notice-num">01</span>
+          <div>
+            <p class="notice-title">與主人同住的民宿</p>
+            <p class="notice-text">會與民宿主人同住（主人住在大廳後方及2樓）。我們是一個分享海邊生活的民宿，歡迎喜歡這種溫度的旅人。</p>
+          </div>
+        </div>
+        <div class="notice-item">
+          <span class="notice-num">02</span>
+          <div>
+            <p class="notice-title">謝絕非住宿訪客與寵物</p>
+            <p class="notice-text">民宿內設備及資源由入住旅人享用，但謝絕接待非住宿的訪客，也無法接待寵物。</p>
+          </div>
+        </div>
+        <div class="notice-item">
+          <span class="notice-num">03</span>
+          <div>
+            <p class="notice-title">早餐由你們一起料理</p>
+            <p class="notice-text">冰箱內備有招待食材，這是主人的心意。旅人可再自行添購。每天早上 7:00–10:00 供應手作麵包。</p>
+          </div>
+        </div>
+        <div class="notice-item">
+          <span class="notice-num">04</span>
+          <div>
+            <p class="notice-title">兩隻毛小孩：愛妮 &amp; 黑糖</p>
+            <p class="notice-text">個性溫馴親人的中型犬米克斯，平日不栓繩圈養。若極度害怕狗狗或介意，請斟酌衡量。</p>
+          </div>
+        </div>
+        <div class="notice-item">
+          <span class="notice-num">05</span>
+          <div>
+            <p class="notice-title">入住 / 退房時間</p>
+            <p class="notice-text">入住時間：下午 4:00 以後<br />退房時間：中午 12:00 以前</p>
+          </div>
+        </div>
+        <div class="notice-item">
+          <span class="notice-num">06</span>
+          <div>
+            <p class="notice-title">大廳無冷氣，自然風調節</p>
+            <p class="notice-text">大廳只有風扇和自然風，夏季建議在戶外中庭用餐。下午5點後落山風轉涼。這是我們對大山大海的微薄敬意，若介意請再斟酌。</p>
+          </div>
+        </div>
+        <div class="notice-item">
+          <span class="notice-num">07</span>
+          <div>
+            <p class="notice-title">環保理念：不提供一次性備品</p>
+            <p class="notice-text">不提供牙膏、牙刷等一次式盥洗用具，也不提供瓶裝礦泉水。全棟過濾水，大廳備有愛惠普4H2微米濾水器——豐濱的水很甜，請多喝。</p>
+          </div>
+        </div>
+        <div class="notice-item">
+          <span class="notice-num">08</span>
+          <div>
+            <p class="notice-title">入住時完整環境介紹</p>
+            <p class="notice-text">主人會在入住時做環境、設備與垃圾分類的完整介紹，讓旅人順暢使用所有居家設備。若有損害，須照價賠償。</p>
+          </div>
+        </div>
+        <div class="notice-item">
+          <span class="notice-num">09</span>
+          <div>
+            <p class="notice-title">維持適度環境整潔</p>
+            <p class="notice-text">旅人須合力保持環境整潔。主人也會在旅人外出時整理大廳內外，降低昆蟲干擾。</p>
+          </div>
+        </div>
+        <div class="notice-item">
+          <span class="notice-num">10</span>
+          <div>
+            <p class="notice-title">大廳開放時間</p>
+            <p class="notice-text">室內大廳及廚房：早上 6:30 至晚上 11:00（10:30 開始整理，11:00 熄燈）。海景中庭全日開放。</p>
+          </div>
+        </div>
+        <div class="notice-item">
+          <span class="notice-num">11</span>
+          <div>
+            <p class="notice-title">廚房請避免大量油煙</p>
+            <p class="notice-text">廚房為開放式設計，請盡量避免油煙過大的料理方式。</p>
+          </div>
+        </div>
+        <div class="notice-item">
+          <span class="notice-num">12</span>
+          <div>
+            <p class="notice-title">夏天冷氣使用小技巧</p>
+            <p class="notice-text">外出時建議關機讓壓縮機喘息，拉上窗簾、關窗，運用預約開機功能，回來時房間一樣涼爽。</p>
+          </div>
+        </div>
+        <div class="notice-item">
+          <span class="notice-num">13</span>
+          <div>
+            <p class="notice-title">全棟軟水系統</p>
+            <p class="notice-text">包含外牆水龍頭皆為軟水，每日供水量9噸。若攜帶充氣泳池，建議不要太大。夏季請斟酌使用水資源。</p>
+          </div>
+        </div>
+        <div class="notice-item">
+          <span class="notice-num">14</span>
+          <div>
+            <p class="notice-title">🚭 嚴格禁菸，禁止煙火炮竹</p>
+            <p class="notice-text">客房及室內空間全面嚴格禁菸及電子煙，違反者罰款 NT$10,000。嚴禁煙火炮竹，避免干擾自然生態。</p>
+          </div>
+        </div>
+        <div class="notice-item">
+          <span class="notice-num">15</span>
+          <div>
+            <p class="notice-title">戶外監視器</p>
+            <p class="notice-text">為環境及旅人安全，戶外及公共空間設有監視器，僅供公共安全佐證使用，確保每位旅人隱私。</p>
+          </div>
+        </div>
+        <div class="notice-item">
+          <span class="notice-num">16</span>
+          <div>
+            <p class="notice-title">大自然環境，昆蟲蚊子</p>
+            <p class="notice-text">難免有昆蟲蚊子，但無小黑蚊。蚊子有，但很少且笨笨的不太叮咬——此為老天的恩賜，旅人可放心在此安頓自己。</p>
+          </div>
+        </div>
+        <div class="notice-item">
+          <span class="notice-num">17</span>
+          <div>
+            <p class="notice-title">聯絡方式</p>
+            <p class="notice-text">可用臉書私訊詢問，但用 LINE（ID：0913516760）聯絡會更好。</p>
+          </div>
+        </div>
+        <div class="notice-item">
+          <span class="notice-num">18</span>
+          <div>
+            <p class="notice-title">取消退費規定</p>
+            <p class="notice-text">因一次接待一組客人，我們必須推掉其他預訂。若臨時無法前來，一律按照交通部個別旅客訂房定型化契約規定退費，並扣取手續費 NT$15。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 住宿價格 -->
+      <div class="booking-section-title" style="margin-top:var(--section-pad);">
+        <p class="eyebrow">住宿價格 · Pricing</p>
+        <div class="divider"></div>
+        <p style="font-size:0.85rem; color:var(--ink-mid); line-height:2; max-width:600px;">
+          住宿費以<strong style="color:var(--ink); font-weight:500;">房間數 × 天數</strong>計算。住得越久，每日均價越低——我們希望你能慢下來，好好享受這片海。
+        </p>
+      </div>
+
+      <div class="price-cards">
+        <div class="price-card">
+          <p class="price-card-nights">1 晚</p>
+          <p class="price-card-per">每房每日均價</p>
+          <p class="price-card-num">9,000</p>
+          <p class="price-card-unit">NT$ / 晚</p>
+        </div>
+        <div class="price-card">
+          <p class="price-card-nights">連續 2 晚</p>
+          <p class="price-card-per">每房每日均價</p>
+          <p class="price-card-num">8,300</p>
+          <p class="price-card-unit">NT$ / 晚</p>
+          <p class="price-card-save">省 700</p>
+        </div>
+        <div class="price-card">
+          <p class="price-card-nights">連續 3 晚</p>
+          <p class="price-card-per">每房每日均價</p>
+          <p class="price-card-num">7,600</p>
+          <p class="price-card-unit">NT$ / 晚</p>
+          <p class="price-card-save">省 1,400</p>
+        </div>
+        <div class="price-card price-card--highlight">
+          <p class="price-card-nights">連續 4 晚</p>
+          <p class="price-card-per">每房每日均價</p>
+          <p class="price-card-num">6,900</p>
+          <p class="price-card-unit">NT$ / 晚</p>
+          <p class="price-card-save">省 2,100</p>
+        </div>
+        <div class="price-card price-card--highlight">
+          <p class="price-card-nights">連續 5 晚</p>
+          <p class="price-card-per">每房每日均價</p>
+          <p class="price-card-num">6,200</p>
+          <p class="price-card-unit">NT$ / 晚</p>
+          <p class="price-card-save">省 2,800</p>
+        </div>
+      </div>
+
+      <div class="price-example">
+        <p class="price-example-label">舉例說明</p>
+        <p class="price-example-text">
+          3 人入住，選 2 間房、連續住 3 晚：<br />
+          <span class="price-example-calc">2 間房 × NT$7,600 × 3 晚 = <strong>NT$45,600</strong></span>
+        </p>
+      </div>
+
+      <div class="price-extras">
+        <div class="price-extra-block">
+          <p class="price-extra-icon">🏠</p>
+          <div>
+            <p class="price-extra-title">老客人回訪優惠</p>
+            <p class="price-extra-desc">
+              每晚每房再折 NT$700。<br />
+              連續回住 5 晚，即享最低價每晚 <strong>NT$5,500</strong>。<br />
+              <span style="font-size:0.75rem; color:var(--ink-light);">詳情請洽主人確認資格。</span>
+            </p>
+          </div>
+        </div>
+        <div class="price-extra-block">
+          <p class="price-extra-icon">🛏️</p>
+          <div>
+            <p class="price-extra-title">加床費用</p>
+            <p class="price-extra-desc">
+              3 歲以上：每晚 <strong>NT$1,000</strong>（含加床）<br />
+              3 歲以下不加床：每晚 <strong>NT$800</strong>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p class="price-footnote">以上價格資訊僅供參考，詳情請洽主人確認。</p>
+
+    </div>
+  </section>
+
+  <!-- ─── INFO ───────────────────────────────────────────────────── -->
+  <section id="info">
+    <div class="container">
+      <div class="info-grid">
+
+        <div>
+          <p class="eyebrow">地圖與交通 · Getting Here</p>
+          <div class="divider"></div>
+          <div class="info-map">
+            <div class="map-overlay">
+              <div class="map-pin"></div>
+              <span class="map-label">純粹愛大海</span>
+              <span class="map-sub">花蓮縣豐濱鄉富光5號</span>
+              <a href="https://www.google.com/maps/search/?api=1&query=23.619343,121.528955"
+                 target="_blank" rel="noopener" class="map-link">
+                開啟 Google Maps ↗
+              </a>
+            </div>
+          </div>
+          <div class="transport">
+            <p><strong>自行開車</strong><br />依地址定位導航即可，台11線旁，彎上小坡即抵達。</p>
+            <p><strong>大眾運輸</strong><br />花蓮火車站轉乘計程車約 65 分鐘（參考費用 NT$1,335）。或搭花蓮客運至富光公車站（步行 0.2 公里）。</p>
+          </div>
+        </div>
+
+        <div class="info-detail">
+          <p class="eyebrow">聯絡我們 · Contact</p>
+          <div class="divider"></div>
+          <h2 class="info-heading">與主人聯繫</h2>
+          <div class="info-row">
+            <span class="info-row-label">地址</span>
+            <span class="info-row-val">花蓮縣豐濱鄉富光5號</span>
+          </div>
+          <div class="info-row">
+            <span class="info-row-label">電話</span>
+            <span class="info-row-val"><a href="tel:+886913516760">+886-913-516-760</a></span>
+          </div>
+          <div class="info-row">
+            <span class="info-row-label">Email</span>
+            <span class="info-row-val"><a href="mailto:liulouis0110@gmail.com">liulouis0110@gmail.com</a></span>
+          </div>
+          <div class="info-row">
+            <span class="info-row-label">LINE</span>
+            <span class="info-row-val">0913516760</span>
+          </div>
+          <div class="info-row">
+            <span class="info-row-label">入住時間</span>
+            <span class="info-row-val">16:00 後入住 · 12:00 前退房</span>
+          </div>
+          <div class="info-row">
+            <span class="info-row-label">語言</span>
+            <span class="info-row-val">中文、English</span>
+          </div>
+          <div class="contact-btns">
+            <a href="tel:+886913516760" class="contact-btn contact-btn--primary">電話訂房</a>
+            <a href="https://line.me/ti/p/1YDwXGjbyq" target="_blank" rel="noopener" class="contact-btn">LINE 聯繫</a>
+            <a href="https://m.me/hualien.boutique.ocean.inn/" target="_blank" rel="noopener" class="contact-btn">Messenger</a>
+          </div>
+          <p class="contact-note">
+            訂房時告訴主人你來自 Dear b&amp;b，入住時有限量明信片可以帶走。
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─────────────────────────────────────────────────── -->
+  <footer id="footer">
+    <div class="footer-inner">
+      <div>
+        <p class="footer-brand-name">純粹愛大海</p>
+        <p class="footer-brand-sub">
+          Boutique Ocean Inn · Hualien, Taiwan<br />
+          日光、草地、大海，分享生活的悠緩假期。
+        </p>
+      </div>
+      <div>
+        <p class="footer-col-title">快速連結</p>
+        <ul class="footer-links">
+          <li><a href="#story">關於這裡</a></li>
+          <li><a href="#rooms">房型介紹</a></li>
+          <li><a href="#features">旅宿特色</a></li>
+          <li><a href="#gallery">影像記憶</a></li>
+          <li><a href="#pricing">訂房資訊</a></li>
+          <li><a href="#info">聯絡資訊</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">社群</p>
+        <ul class="footer-links">
+          <li><a href="https://www.facebook.com/hualien.boutique.ocean.inn/" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a href="https://www.instagram.com/hualien_boutique_ocean_inn/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://dearbnb.com/zh/bnb/boutique-ocean-inn/" target="_blank" rel="noopener">Dear b&amp;b 頁面</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 純粹愛大海 · Boutique Ocean Inn · 花蓮縣豐濱鄉</span>
+      <span>合法民宿 花蓮縣 2179 號</span>
+    </div>
+  </footer>
+
+  <!-- ─── TWEAKS PANEL (React) ──────────────────────────────────── -->
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js"
+          integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L"
+          crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js"
+          integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm"
+          crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js"
+          integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y"
+          crossorigin="anonymous"></script>
+  <script type="text/babel" src="src/tweaks-panel.jsx"></script>
+
+  <script type="text/babel">
+    const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+      "mood": "sand",
+      "rhythm": "poetic",
+      "texture": true
+    }/*EDITMODE-END*/;
+
+    const MOODS = {
+      ocean: {
+        label: '深海藍 Ocean',
+        '--cream':       '#f7f3ec',
+        '--cream-dark':  '#ede6d8',
+        '--parchment':   '#d6c8b0',
+        '--ink':         '#1e1a14',
+        '--ink-mid':     '#4a4235',
+        '--ink-light':   '#7a7060',
+        '--ocean-deep':  '#1a4a5e',
+        '--ocean-mid':   '#2d6f8a',
+        '--ocean-light': '#9dbfcf',
+        '--ocean-pale':  '#d4e8f0',
+        heroBg:  '#1a4a5e',
+        heroGrad: 'radial-gradient(ellipse 80% 60% at 50% 110%, rgba(45,111,138,0.35) 0%, transparent 65%), radial-gradient(ellipse 60% 40% at 20% 30%, rgba(157,191,207,0.08) 0%, transparent 50%)',
+      },
+      sand: {
+        label: '金沙日光 Sand',
+        '--cream':       '#faf6ee',
+        '--cream-dark':  '#f0e8d5',
+        '--parchment':   '#d4b896',
+        '--ink':         '#1e1710',
+        '--ink-mid':     '#4a3d28',
+        '--ink-light':   '#8a7a5a',
+        '--ocean-deep':  '#7a5c30',
+        '--ocean-mid':   '#a07840',
+        '--ocean-light': '#c8a870',
+        '--ocean-pale':  '#f0dfc0',
+        heroBg:  '#2a1f10',
+        heroGrad: 'radial-gradient(ellipse 80% 60% at 50% 110%, rgba(160,120,64,0.4) 0%, transparent 65%), radial-gradient(ellipse 60% 40% at 80% 20%, rgba(200,168,112,0.1) 0%, transparent 50%)',
+      },
+      night: {
+        label: '夜晚星空 Night',
+        '--cream':       '#f4f2f0',
+        '--cream-dark':  '#e8e4de',
+        '--parchment':   '#c8c0b0',
+        '--ink':         '#0e0e12',
+        '--ink-mid':     '#3a3848',
+        '--ink-light':   '#6a6878',
+        '--ocean-deep':  '#1e1a3a',
+        '--ocean-mid':   '#3a3468',
+        '--ocean-light': '#8880b8',
+        '--ocean-pale':  '#d8d4f0',
+        heroBg:  '#0e0e1a',
+        heroGrad: 'radial-gradient(ellipse 80% 60% at 50% 110%, rgba(58,52,104,0.5) 0%, transparent 65%), radial-gradient(ellipse 40% 30% at 70% 15%, rgba(136,128,184,0.15) 0%, transparent 50%)',
+      },
+    };
+
+    const RHYTHMS = {
+      poetic:   { lineHeight: '2',    sectionPad: 'clamp(5rem,10vw,9rem)',  bodyWeight: '300', letterSpacing: '0.05em' },
+      grounded: { lineHeight: '1.75', sectionPad: 'clamp(3.5rem,7vw,6rem)', bodyWeight: '400', letterSpacing: '0.02em' },
+    };
+
+    function applyMood(key) {
+      const m = MOODS[key];
+      const root = document.documentElement;
+      Object.entries(m).forEach(([k, v]) => {
+        if (k.startsWith('--')) root.style.setProperty(k, v);
+      });
+      const hero = document.getElementById('hero');
+      if (hero) hero.style.background = m.heroBg;
+      const tex = hero && hero.querySelector('.hero-texture');
+      if (tex) tex.style.backgroundImage = m.heroGrad;
+      const introEl = document.getElementById('intro');
+      if (introEl) introEl.style.background = m['--ocean-deep'] || m.heroBg;
+      const footer = document.getElementById('footer');
+      if (footer) footer.style.background = m['--ink'];
+    }
+
+    function applyRhythm(key) {
+      const r = RHYTHMS[key];
+      document.documentElement.style.setProperty('--section-pad', r.sectionPad);
+      document.body.style.lineHeight = r.lineHeight;
+      document.body.style.fontWeight = r.bodyWeight;
+      document.querySelectorAll('.story-body-center, .room-desc, .feature-desc, .section-sub').forEach(el => {
+        el.style.letterSpacing = r.letterSpacing;
+        el.style.lineHeight = parseFloat(r.lineHeight) * 1.05 + '';
+      });
+    }
+
+    function applyTexture(on) {
+      let style = document.getElementById('__texture-style');
+      if (!style) {
+        style = document.createElement('style');
+        style.id = '__texture-style';
+        document.head.appendChild(style);
+      }
+      style.textContent = on ? `
+        body::before {
+          content: '';
+          position: fixed;
+          inset: 0;
+          pointer-events: none;
+          z-index: 9999;
+          opacity: 0.028;
+          background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+          background-size: 300px;
+          mix-blend-mode: multiply;
+        }
+        #rooms .room-card { border: 1px solid var(--parchment); }
+        .feature-item { border-bottom-style: dashed; }
+      ` : '';
+    }
+
+    function OceanTweaks() {
+      const { TweaksPanel, TweakSection, TweakRadio, TweakToggle, useTweaks } = window;
+      const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
+
+      React.useEffect(() => { applyMood(t.mood);       }, [t.mood]);
+      React.useEffect(() => { applyRhythm(t.rhythm);   }, [t.rhythm]);
+      React.useEffect(() => { applyTexture(t.texture); }, [t.texture]);
+
+      return React.createElement(TweaksPanel, null,
+        React.createElement(TweakSection, { title: '氛圍 Mood' },
+          React.createElement(TweakRadio, {
+            id: 'mood', value: t.mood,
+            options: [
+              { value: 'ocean', label: '深海藍' },
+              { value: 'sand',  label: '金沙' },
+              { value: 'night', label: '夜空' },
+            ],
+            onChange: v => setTweak('mood', v),
+          })
+        ),
+        React.createElement(TweakSection, { title: '文字韻律 Rhythm' },
+          React.createElement(TweakRadio, {
+            id: 'rhythm', value: t.rhythm,
+            options: [
+              { value: 'poetic',   label: '詩意疏朗' },
+              { value: 'grounded', label: '資訊紮實' },
+            ],
+            onChange: v => setTweak('rhythm', v),
+          })
+        ),
+        React.createElement(TweakSection, { title: '紙質感 Texture' },
+          React.createElement(TweakToggle, {
+            id: 'texture', label: '疊加紙質噪點',
+            value: t.texture,
+            onChange: v => setTweak('texture', v),
+          })
+        )
+      );
+    }
+
+    const tweakRoot = document.createElement('div');
+    document.body.appendChild(tweakRoot);
+    ReactDOM.createRoot(tweakRoot).render(React.createElement(OceanTweaks));
+  </script>
+
+  <script src="src/main.js"></script>
+
+</body>
+</html>
