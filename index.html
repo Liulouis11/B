@@ -19,7 +19,7 @@
     --card-bg: #fff;
     --border: #eee;
     --radius: 14px;
-    --font: 'Noto Sans TC', 'Noto Sans JP', 'Noto Sans KR', sans-serif;
+    --font: 'Noto Sans TC', 'Noto Sans JP', sans-serif;
   }
 
   html, body {
@@ -35,7 +35,7 @@
   }
 
   /* ── Google Fonts ── */
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap');
 
   /* ── Language Bar ── */
   #lang-bar {
@@ -440,7 +440,6 @@
   <button class="lang-btn active" data-lang="zh" onclick="setLang('zh')">繁中</button>
   <button class="lang-btn" data-lang="en" onclick="setLang('en')">English</button>
   <button class="lang-btn" data-lang="ja" onclick="setLang('ja')">日本語</button>
-  <button class="lang-btn" data-lang="ko" onclick="setLang('ko')">한국어</button>
 </div>
 
 <!-- Hero -->
@@ -494,112 +493,110 @@
 // ── Data ──────────────────────────────────────────────────────────────────
 
 const categories = [
-  { id: 'tea',      names: { zh: '找好茶', en: 'Tea Selection', ja: '良いお茶を探す', ko: '좋은 차 찾기' } },
-  { id: 'texture',  names: { zh: '找口感', en: 'Texture & Pearls', ja: '食感を探す', ko: '식감 찾기' } },
-  { id: 'milk_tea', names: { zh: '找奶茶', en: 'Milk Tea', ja: 'ミルクティーを探す', ko: '밀크티 찾기' } },
-  { id: 'fresh',    names: { zh: '找新鮮', en: 'Fresh Squeeze', ja: 'フレッシュ搾り', ko: '신선 착즙' } },
-  { id: 'coffee',   names: { zh: '找咖啡', en: 'Coffee', ja: 'コーヒー', ko: '커피' } },
-  { id: 'latte',    names: { zh: '紅茶拿鐵', en: 'Black Tea Latte', ja: '紅茶ラテ', ko: '홍차 라떼' } },
+  { id: 'tea',      names: { zh: '找好茶', en: 'Tea Selection', ja: '良いお茶を探す' } },
+  { id: 'texture',  names: { zh: '找口感', en: 'Texture & Pearls', ja: '食感を探す' } },
+  { id: 'milk_tea', names: { zh: '找奶茶', en: 'Milk Tea', ja: 'ミルクティーを探す' } },
+  { id: 'fresh',    names: { zh: '找新鮮', en: 'Fresh Squeeze', ja: 'フレッシュ搾り' } },
+  { id: 'coffee',   names: { zh: '找咖啡', en: 'Coffee', ja: 'コーヒー' } },
+  { id: 'latte',    names: { zh: '紅茶拿鐵', en: 'Black Tea Latte', ja: '紅茶ラテ' } },
 ];
 
 const tagMap = {
-  R:  { icon: '⭐', zh: '本店推薦', en: 'Recommended',             ja: 'おすすめ',        ko: '추천' },
-  1:  { icon: '🌶️', zh: '小辣',    en: 'Mild Spicy',              ja: '少し辛い',        ko: '약간 매운' },
-  2:  { icon: '🌶️🌶️', zh: '中辣', en: 'Medium Spicy',            ja: '中辛',            ko: '보통 매운' },
-  3:  { icon: '🔥', zh: '大辣',    en: 'Very Spicy',              ja: '激辛',            ko: '매우 매운' },
-  P:  { icon: '🐷', zh: '含豬肉',  en: 'Contains Pork',           ja: '豚肉入り',        ko: '돼지고기 포함' },
-  B:  { icon: '🐂', zh: '含牛肉',  en: 'Contains Beef',           ja: '牛肉入り',        ko: '소고기 포함' },
-  L:  { icon: '🐑', zh: '含羊肉',  en: 'Contains Lamb',           ja: 'ラム入り',        ko: '양고기 포함' },
-  V:  { icon: '🥬', zh: '素食',    en: 'Vegetarian',              ja: 'ベジタリアン',    ko: '채식' },
-  V5: { icon: '🧄', zh: '五辛素',  en: 'Plant-based w/ Allium',   ja: '五葷あり精進',    ko: '오신채 채식' },
-  H:  { icon: '☪️', zh: '清真認證', en: 'Halal Certified',        ja: 'ハラール認証',    ko: '할랄 인증' },
+  R:  { icon: '⭐', zh: '本店推薦', en: 'Recommended',             ja: 'おすすめ' },
+  1:  { icon: '🌶️', zh: '小辣',    en: 'Mild Spicy',              ja: '少し辛い' },
+  2:  { icon: '🌶️🌶️', zh: '中辣', en: 'Medium Spicy',            ja: '中辛' },
+  3:  { icon: '🔥', zh: '大辣',    en: 'Very Spicy',              ja: '激辛' },
+  P:  { icon: '🐷', zh: '含豬肉',  en: 'Contains Pork',           ja: '豚肉入り' },
+  B:  { icon: '🐂', zh: '含牛肉',  en: 'Contains Beef',           ja: '牛肉入り' },
+  L:  { icon: '🐑', zh: '含羊肉',  en: 'Contains Lamb',           ja: 'ラム入り' },
+  V:  { icon: '🥬', zh: '素食',    en: 'Vegetarian',              ja: 'ベジタリアン' },
+  V5: { icon: '🧄', zh: '五辛素',  en: 'Plant-based w/ Allium',   ja: '五葷あり精進' },
+  H:  { icon: '☪️', zh: '清真認證', en: 'Halal Certified',        ja: 'ハラール認証' },
 };
 
 const i18n = {
-  store_name: { zh: '太陽早餐店', en: 'Sun Breakfast House', ja: '太陽朝食店', ko: '태양 조식당' },
-  address:    { zh: '台11線5號', en: 'No.5, Hwy 11', ja: '台11線5号', ko: '타이완 11호선 5번' },
+  store_name: { zh: '太陽早餐店', en: 'Sun Breakfast House', ja: '太陽朝食店' },
+  address:    { zh: '台11線5號', en: 'No.5, Hwy 11', ja: '台11線5号' },
   sweetness: {
     zh: '正常甜（標準）不要太甜（9分甜）少甜（7分甜）半甜（5分甜）微甜（3分甜）無糖（健康）',
     en: 'Full Sugar · Less Sugar (90%) · Mild Sugar (70%) · Half Sugar (50%) · Less Sweet (30%) · No Sugar',
     ja: '標準甘さ・やや甘め(9)・やや控えめ(7)・半分(5)・甘さ控えめ(3)・砂糖なし',
-    ko: '정상 단맛 · 덜 달게(9분) · 약간 달게(7분) · 반달게(5분) · 조금달게(3분) · 무가당',
   },
-  market: { zh: '時價', en: 'Market Price', ja: '時価', ko: '시가' },
+  market: { zh: '時價', en: 'Market Price', ja: '時価' },
   footer: {
     zh: '© 太陽早餐店 · 台11線5號 · Tel: 8825252\n價格含稅，如有更動以現場公告為準',
     en: '© Sun Breakfast House · No.5, Hwy 11 · Tel: 8825252\nPrices include tax. Subject to change without notice.',
     ja: '© 太陽朝食店 · 台11線5号 · Tel: 8825252\n税込価格。価格は予告なく変更する場合があります。',
-    ko: '© 태양 조식당 · 타이완 11호선 5번 · Tel: 8825252\n가격은 부가세 포함. 사전 공지 없이 변경될 수 있습니다.',
   },
 };
 
 const menuItems = [
   // ── 找好茶 ──
-  { id:'tea-001', category:'tea', names:{zh:'茉莉綠茶',en:'Jasmine Green Tea',ja:'ジャスミン緑茶',ko:'자스민 녹차'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:20},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:25}], image:null, emoji:'🍵', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
-  { id:'tea-002', category:'tea', names:{zh:'阿薩姆紅茶',en:'Assam Black Tea',ja:'アッサム紅茶',ko:'아삼 홍차'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:20},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:25}], image:null, emoji:'🍵', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
-  { id:'tea-003', category:'tea', names:{zh:'四季春茶',en:'Four Seasons Spring Tea',ja:'四季春茶',ko:'사계춘차'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:20},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:25}], image:null, emoji:'🌸', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
-  { id:'tea-004', category:'tea', names:{zh:'凍頂烏龍綠',en:'Dong Ding Oolong Green',ja:'凍頂烏龍グリーン',ko:'동정 우롱 그린'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:20},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:25}], image:null, emoji:'🍵', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
-  { id:'tea-005', category:'tea', names:{zh:'文山清茶',en:'Wenshan Light Tea',ja:'文山清茶',ko:'원산 청차'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:25},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:35}], image:null, emoji:'🍵', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
-  { id:'tea-006', category:'tea', names:{zh:'檸檬綠',en:'Lemon Green Tea',ja:'レモン緑茶',ko:'레몬 녹차'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:30},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:45}], image:null, emoji:'🍋', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
-  { id:'tea-007', category:'tea', names:{zh:'檸檬青',en:'Lemon Green',ja:'レモングリーン',ko:'레몬 그린'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:30},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:45}], image:null, emoji:'🍋', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
-  { id:'tea-008', category:'tea', names:{zh:'梅果綠',en:'Plum Fruit Green Tea',ja:'梅フルーツ緑茶',ko:'매실 과일 녹차'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:30},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:45}], image:null, emoji:'🍑', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
-  { id:'tea-009', category:'tea', names:{zh:'蜂蜜綠',en:'Honey Green Tea',ja:'ハニー緑茶',ko:'꿀 녹차'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:30},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:45}], image:null, emoji:'🍯', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
-  { id:'tea-010', category:'tea', names:{zh:'桔子綠',en:'Tangerine Green Tea',ja:'みかん緑茶',ko:'귤 녹차'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:30},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:45}], image:null, emoji:'🍊', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
-  { id:'tea-011', category:'tea', names:{zh:'8冰茶',en:'8 Iced Tea',ja:'8アイスティー',ko:'8 아이스티'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:30},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:45}], image:null, emoji:'🧊', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
-  { id:'tea-012', category:'tea', names:{zh:'養樂多綠',en:'Yakult Green Tea',ja:'ヤクルト緑茶',ko:'야쿠르트 녹차'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:35},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:50}], image:null, emoji:'🍵', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
-  { id:'tea-013', category:'tea', names:{zh:'芒果青茶',en:'Mango Green Tea',ja:'マンゴー緑茶',ko:'망고 녹차'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:30},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:45}], image:null, emoji:'🥭', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
-  { id:'tea-014', category:'tea', names:{zh:'冰淇淋紅茶',en:'Ice Cream Black Tea',ja:'アイスクリーム紅茶',ko:'아이스크림 홍차'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:30},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:45}], image:null, emoji:'🍦', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
-  { id:'tea-015', category:'tea', names:{zh:'古早味紅茶',en:'Old-Style Black Tea',ja:'昔ながらの紅茶',ko:'옛날 홍차'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:30},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:45}], image:null, emoji:'🍵', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
-  { id:'tea-016', category:'tea', names:{zh:'蔓越莓紅茶',en:'Cranberry Black Tea',ja:'クランベリー紅茶',ko:'크랜베리 홍차'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:30},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:45}], image:null, emoji:'🍵', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
-  { id:'tea-017', category:'tea', names:{zh:'鮮柚綠',en:'Fresh Grapefruit Green Tea',ja:'フレッシュザボン緑茶',ko:'생 자몽 녹차'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:40},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:55}], image:null, emoji:'🍋', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
-  { id:'tea-018', category:'tea', names:{zh:'鮮柚百香綠',en:'Grapefruit Passion Fruit Green Tea',ja:'ザボンパッション緑茶',ko:'자몽 패션프루트 녹차'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:40},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:55}], image:null, emoji:'🍋', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'tea-001', category:'tea', names:{zh:'茉莉綠茶',en:'Jasmine Green Tea',ja:'ジャスミン緑茶'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:20},{label:{zh:'大',en:'L',ja:'L'},value:25}], image:null, emoji:'🍵', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
+  { id:'tea-002', category:'tea', names:{zh:'阿薩姆紅茶',en:'Assam Black Tea',ja:'アッサム紅茶'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:20},{label:{zh:'大',en:'L',ja:'L'},value:25}], image:null, emoji:'🍵', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
+  { id:'tea-003', category:'tea', names:{zh:'四季春茶',en:'Four Seasons Spring Tea',ja:'四季春茶'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:20},{label:{zh:'大',en:'L',ja:'L'},value:25}], image:null, emoji:'🌸', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
+  { id:'tea-004', category:'tea', names:{zh:'凍頂烏龍綠',en:'Dong Ding Oolong Green',ja:'凍頂烏龍グリーン'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:20},{label:{zh:'大',en:'L',ja:'L'},value:25}], image:null, emoji:'🍵', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
+  { id:'tea-005', category:'tea', names:{zh:'文山清茶',en:'Wenshan Light Tea',ja:'文山清茶'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:25},{label:{zh:'大',en:'L',ja:'L'},value:35}], image:null, emoji:'🍵', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
+  { id:'tea-006', category:'tea', names:{zh:'檸檬綠',en:'Lemon Green Tea',ja:'レモン緑茶'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:30},{label:{zh:'大',en:'L',ja:'L'},value:45}], image:null, emoji:'🍋', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
+  { id:'tea-007', category:'tea', names:{zh:'檸檬青',en:'Lemon Green',ja:'レモングリーン'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:30},{label:{zh:'大',en:'L',ja:'L'},value:45}], image:null, emoji:'🍋', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
+  { id:'tea-008', category:'tea', names:{zh:'梅果綠',en:'Plum Fruit Green Tea',ja:'梅フルーツ緑茶'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:30},{label:{zh:'大',en:'L',ja:'L'},value:45}], image:null, emoji:'🍑', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
+  { id:'tea-009', category:'tea', names:{zh:'蜂蜜綠',en:'Honey Green Tea',ja:'ハニー緑茶'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:30},{label:{zh:'大',en:'L',ja:'L'},value:45}], image:null, emoji:'🍯', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
+  { id:'tea-010', category:'tea', names:{zh:'桔子綠',en:'Tangerine Green Tea',ja:'みかん緑茶'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:30},{label:{zh:'大',en:'L',ja:'L'},value:45}], image:null, emoji:'🍊', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
+  { id:'tea-011', category:'tea', names:{zh:'8冰茶',en:'8 Iced Tea',ja:'8アイスティー'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:30},{label:{zh:'大',en:'L',ja:'L'},value:45}], image:null, emoji:'🧊', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
+  { id:'tea-012', category:'tea', names:{zh:'養樂多綠',en:'Yakult Green Tea',ja:'ヤクルト緑茶'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:35},{label:{zh:'大',en:'L',ja:'L'},value:50}], image:null, emoji:'🍵', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
+  { id:'tea-013', category:'tea', names:{zh:'芒果青茶',en:'Mango Green Tea',ja:'マンゴー緑茶'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:30},{label:{zh:'大',en:'L',ja:'L'},value:45}], image:null, emoji:'🥭', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
+  { id:'tea-014', category:'tea', names:{zh:'冰淇淋紅茶',en:'Ice Cream Black Tea',ja:'アイスクリーム紅茶'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:30},{label:{zh:'大',en:'L',ja:'L'},value:45}], image:null, emoji:'🍦', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
+  { id:'tea-015', category:'tea', names:{zh:'古早味紅茶',en:'Old-Style Black Tea',ja:'昔ながらの紅茶'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:30},{label:{zh:'大',en:'L',ja:'L'},value:45}], image:null, emoji:'🍵', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
+  { id:'tea-016', category:'tea', names:{zh:'蔓越莓紅茶',en:'Cranberry Black Tea',ja:'クランベリー紅茶'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:30},{label:{zh:'大',en:'L',ja:'L'},value:45}], image:null, emoji:'🍵', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
+  { id:'tea-017', category:'tea', names:{zh:'鮮柚綠',en:'Fresh Grapefruit Green Tea',ja:'フレッシュザボン緑茶'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:40},{label:{zh:'大',en:'L',ja:'L'},value:55}], image:null, emoji:'🍋', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
+  { id:'tea-018', category:'tea', names:{zh:'鮮柚百香綠',en:'Grapefruit Passion Fruit Green Tea',ja:'ザボンパッション緑茶'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:40},{label:{zh:'大',en:'L',ja:'L'},value:55}], image:null, emoji:'🍋', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
   // ── 找口感 ──
-  { id:'texture-001', category:'texture', names:{zh:'波霸紅綠青鳥',en:'Boba Red & Green Bird',ja:'タピオカ紅緑青鳥',ko:'버블 레드그린 블루버드'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:25},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:35}], image:null, emoji:'🧋', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
-  { id:'texture-002', category:'texture', names:{zh:'波霸奶綠',en:'Boba Milk Green Tea',ja:'タピオカミルク緑茶',ko:'버블 밀크 녹차'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:30},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:45}], image:null, emoji:'🧋', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
-  { id:'texture-003', category:'texture', names:{zh:'波霸奶茶',en:'Bubble Milk Tea',ja:'タピオカミルクティー',ko:'버블 밀크티'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:30},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:45}], image:null, emoji:'🧋', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
-  { id:'texture-004', category:'texture', names:{zh:'珍珠紅綠青鳥',en:'Pearl Red & Green Bird',ja:'パール紅緑青鳥',ko:'펄 레드그린 블루버드'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:25},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:35}], image:null, emoji:'🧋', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
-  { id:'texture-005', category:'texture', names:{zh:'珍珠奶綠',en:'Pearl Milk Green Tea',ja:'パールミルク緑茶',ko:'펄 밀크 녹차'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:30},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:45}], image:null, emoji:'🧋', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
-  { id:'texture-006', category:'texture', names:{zh:'珍珠奶茶',en:'Pearl Milk Tea',ja:'パールミルクティー',ko:'펄 밀크티'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:30},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:45}], image:null, emoji:'🧋', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
-  { id:'texture-007', category:'texture', names:{zh:'椰果奶茶',en:'Coconut Jelly Milk Tea',ja:'ナタデココミルクティー',ko:'코코넛 젤리 밀크티'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:30},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:45}], image:null, emoji:'🧋', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
-  { id:'texture-008', category:'texture', names:{zh:'布丁奶茶',en:'Pudding Milk Tea',ja:'プリンミルクティー',ko:'푸딩 밀크티'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:40},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:60}], image:null, emoji:'🍮', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
-  { id:'texture-009', category:'texture', names:{zh:'仙草奶凍',en:'Grass Jelly Milk',ja:'仙草ミルクゼリー',ko:'선초 밀크 젤리'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:30},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:45}], image:null, emoji:'🧋', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
-  { id:'texture-010', category:'texture', names:{zh:'愛玉冰茶',en:'Aiyu Jelly Iced Tea',ja:'アイユゼリーアイスティー',ko:'아이유 젤리 아이스티'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:35},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:50}], image:null, emoji:'🧊', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'texture-001', category:'texture', names:{zh:'波霸紅綠青鳥',en:'Boba Red & Green Bird',ja:'タピオカ紅緑青鳥'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:25},{label:{zh:'大',en:'L',ja:'L'},value:35}], image:null, emoji:'🧋', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
+  { id:'texture-002', category:'texture', names:{zh:'波霸奶綠',en:'Boba Milk Green Tea',ja:'タピオカミルク緑茶'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:30},{label:{zh:'大',en:'L',ja:'L'},value:45}], image:null, emoji:'🧋', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
+  { id:'texture-003', category:'texture', names:{zh:'波霸奶茶',en:'Bubble Milk Tea',ja:'タピオカミルクティー'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:30},{label:{zh:'大',en:'L',ja:'L'},value:45}], image:null, emoji:'🧋', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
+  { id:'texture-004', category:'texture', names:{zh:'珍珠紅綠青鳥',en:'Pearl Red & Green Bird',ja:'パール紅緑青鳥'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:25},{label:{zh:'大',en:'L',ja:'L'},value:35}], image:null, emoji:'🧋', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
+  { id:'texture-005', category:'texture', names:{zh:'珍珠奶綠',en:'Pearl Milk Green Tea',ja:'パールミルク緑茶'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:30},{label:{zh:'大',en:'L',ja:'L'},value:45}], image:null, emoji:'🧋', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
+  { id:'texture-006', category:'texture', names:{zh:'珍珠奶茶',en:'Pearl Milk Tea',ja:'パールミルクティー'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:30},{label:{zh:'大',en:'L',ja:'L'},value:45}], image:null, emoji:'🧋', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
+  { id:'texture-007', category:'texture', names:{zh:'椰果奶茶',en:'Coconut Jelly Milk Tea',ja:'ナタデココミルクティー'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:30},{label:{zh:'大',en:'L',ja:'L'},value:45}], image:null, emoji:'🧋', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
+  { id:'texture-008', category:'texture', names:{zh:'布丁奶茶',en:'Pudding Milk Tea',ja:'プリンミルクティー'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:40},{label:{zh:'大',en:'L',ja:'L'},value:60}], image:null, emoji:'🍮', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
+  { id:'texture-009', category:'texture', names:{zh:'仙草奶凍',en:'Grass Jelly Milk',ja:'仙草ミルクゼリー'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:30},{label:{zh:'大',en:'L',ja:'L'},value:45}], image:null, emoji:'🧋', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
+  { id:'texture-010', category:'texture', names:{zh:'愛玉冰茶',en:'Aiyu Jelly Iced Tea',ja:'アイユゼリーアイスティー'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:35},{label:{zh:'大',en:'L',ja:'L'},value:50}], image:null, emoji:'🧊', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
   // ── 找奶茶 ──
-  { id:'milk_tea-001', category:'milk_tea', names:{zh:'奶茶',en:'Milk Tea',ja:'ミルクティー',ko:'밀크티'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:30},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:45}], image:null, emoji:'🥛', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
-  { id:'milk_tea-002', category:'milk_tea', names:{zh:'奶綠',en:'Milk Green Tea',ja:'ミルク緑茶',ko:'밀크 녹차'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:30},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:45}], image:null, emoji:'🥛', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
-  { id:'milk_tea-003', category:'milk_tea', names:{zh:'紅茶瑪奇朵',en:'Black Tea Macchiato',ja:'紅茶マキアート',ko:'홍차 마끼아또'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:30},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:45}], image:null, emoji:'🥛', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
-  { id:'milk_tea-004', category:'milk_tea', names:{zh:'烏龍奶茶',en:'Oolong Milk Tea',ja:'ウーロンミルクティー',ko:'우롱 밀크티'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:30},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:45}], image:null, emoji:'🥛', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
-  { id:'milk_tea-005', category:'milk_tea', names:{zh:'黑糖奶茶',en:'Brown Sugar Milk Tea',ja:'黒糖ミルクティー',ko:'흑당 밀크티'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:35},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:50}], image:null, emoji:'🥛', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
-  { id:'milk_tea-006', category:'milk_tea', names:{zh:'焦糖奶茶',en:'Caramel Milk Tea',ja:'キャラメルミルクティー',ko:'카라멜 밀크티'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:35},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:50}], image:null, emoji:'🥛', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
-  { id:'milk_tea-007', category:'milk_tea', names:{zh:'榛果奶茶',en:'Hazelnut Milk Tea',ja:'ヘーゼルナッツミルクティー',ko:'헤이즐넛 밀크티'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:35},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:50}], image:null, emoji:'🥛', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
-  { id:'milk_tea-008', category:'milk_tea', names:{zh:'阿華田',en:'Ovaltine',ja:'オバルティン',ko:'오발틴'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:35},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:50}], image:null, emoji:'🥛', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
-  { id:'milk_tea-009', category:'milk_tea', names:{zh:'可可芭薈',en:'Cocoa Aloe Vera',ja:'ココアアロエ',ko:'코코아 알로에'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:40},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:55}], image:null, emoji:'🥛', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'milk_tea-001', category:'milk_tea', names:{zh:'奶茶',en:'Milk Tea',ja:'ミルクティー'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:30},{label:{zh:'大',en:'L',ja:'L'},value:45}], image:null, emoji:'🥛', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
+  { id:'milk_tea-002', category:'milk_tea', names:{zh:'奶綠',en:'Milk Green Tea',ja:'ミルク緑茶'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:30},{label:{zh:'大',en:'L',ja:'L'},value:45}], image:null, emoji:'🥛', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
+  { id:'milk_tea-003', category:'milk_tea', names:{zh:'紅茶瑪奇朵',en:'Black Tea Macchiato',ja:'紅茶マキアート'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:30},{label:{zh:'大',en:'L',ja:'L'},value:45}], image:null, emoji:'🥛', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
+  { id:'milk_tea-004', category:'milk_tea', names:{zh:'烏龍奶茶',en:'Oolong Milk Tea',ja:'ウーロンミルクティー'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:30},{label:{zh:'大',en:'L',ja:'L'},value:45}], image:null, emoji:'🥛', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
+  { id:'milk_tea-005', category:'milk_tea', names:{zh:'黑糖奶茶',en:'Brown Sugar Milk Tea',ja:'黒糖ミルクティー'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:35},{label:{zh:'大',en:'L',ja:'L'},value:50}], image:null, emoji:'🥛', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
+  { id:'milk_tea-006', category:'milk_tea', names:{zh:'焦糖奶茶',en:'Caramel Milk Tea',ja:'キャラメルミルクティー'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:35},{label:{zh:'大',en:'L',ja:'L'},value:50}], image:null, emoji:'🥛', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
+  { id:'milk_tea-007', category:'milk_tea', names:{zh:'榛果奶茶',en:'Hazelnut Milk Tea',ja:'ヘーゼルナッツミルクティー'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:35},{label:{zh:'大',en:'L',ja:'L'},value:50}], image:null, emoji:'🥛', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
+  { id:'milk_tea-008', category:'milk_tea', names:{zh:'阿華田',en:'Ovaltine',ja:'オバルティン'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:35},{label:{zh:'大',en:'L',ja:'L'},value:50}], image:null, emoji:'🥛', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
+  { id:'milk_tea-009', category:'milk_tea', names:{zh:'可可芭薈',en:'Cocoa Aloe Vera',ja:'ココアアロエ'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:40},{label:{zh:'大',en:'L',ja:'L'},value:55}], image:null, emoji:'🥛', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
   // ── 找新鮮 ──
-  { id:'fresh-001', category:'fresh', names:{zh:'檸檬汁',en:'Lemon Juice',ja:'レモンジュース',ko:'레몬 주스'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:35},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:50}], image:null, emoji:'🍋', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
-  { id:'fresh-002', category:'fresh', names:{zh:'金桔檸檬',en:'Kumquat Lemon',ja:'金柑レモン',ko:'금귤 레몬'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:35},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:50}], image:null, emoji:'🍋', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
-  { id:'fresh-003', category:'fresh', names:{zh:'檸檬蔓越莓',en:'Lemon Cranberry',ja:'レモンクランベリー',ko:'레몬 크랜베리'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:35},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:50}], image:null, emoji:'🍋', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
-  { id:'fresh-004', category:'fresh', names:{zh:'檸檬梅子',en:'Lemon Plum',ja:'レモン梅',ko:'레몬 매실'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:40},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:55}], image:null, emoji:'🍋', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
-  { id:'fresh-005', category:'fresh', names:{zh:'檸檬蜜',en:'Honey Lemon',ja:'ハニーレモン',ko:'꿀 레몬'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:45},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:65}], image:null, emoji:'🍯', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
-  { id:'fresh-006', category:'fresh', names:{zh:'檸檬養樂多',en:'Lemon Yakult',ja:'レモンヤクルト',ko:'레몬 야쿠르트'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:45},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:65}], image:null, emoji:'🍋', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
-  { id:'fresh-007', category:'fresh', names:{zh:'鮮桔茶',en:'Fresh Tangerine Tea',ja:'フレッシュみかん茶',ko:'생 귤차'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:40},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:55}], image:null, emoji:'🍊', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
-  { id:'fresh-008', category:'fresh', names:{zh:'蟹茶',en:'Crab Apple Tea',ja:'カニリンゴ茶',ko:'아그배 차'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:30},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:45}], image:null, emoji:'🦀', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
-  { id:'fresh-009', category:'fresh', names:{zh:'8冰茶',en:'8 Iced Tea',ja:'8アイスティー',ko:'8 아이스티'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:30},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:45}], image:null, emoji:'🧊', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
-  { id:'fresh-010', category:'fresh', names:{zh:'蔓越莓汁',en:'Cranberry Juice',ja:'クランベリージュース',ko:'크랜베리 주스'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:30},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:45}], image:null, emoji:'🍒', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
-  { id:'fresh-011', category:'fresh', names:{zh:'葡萄柚汁',en:'Grapefruit Juice',ja:'グレープフルーツジュース',ko:'자몽 주스'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:40},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:55}], image:null, emoji:'🍊', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
-  { id:'fresh-012', category:'fresh', names:{zh:'葡萄柚多多',en:'Grapefruit Yakult',ja:'グレープフルーツヤクルト',ko:'자몽 야쿠르트'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:45},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:65}], image:null, emoji:'🍊', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
-  { id:'fresh-013', category:'fresh', names:{zh:'百香多多',en:'Passion Fruit Yakult',ja:'パッションフルーツヤクルト',ko:'패션프루트 야쿠르트'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:45},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:65}], image:null, emoji:'🍈', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
-  { id:'fresh-014', category:'fresh', names:{zh:'鮮柚百香果',en:'Fresh Grapefruit Passion Fruit',ja:'フレッシュザボンパッションフルーツ',ko:'생 자몽 패션프루트'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:40},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:55}], image:null, emoji:'🍋', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'fresh-001', category:'fresh', names:{zh:'檸檬汁',en:'Lemon Juice',ja:'レモンジュース'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:35},{label:{zh:'大',en:'L',ja:'L'},value:50}], image:null, emoji:'🍋', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
+  { id:'fresh-002', category:'fresh', names:{zh:'金桔檸檬',en:'Kumquat Lemon',ja:'金柑レモン'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:35},{label:{zh:'大',en:'L',ja:'L'},value:50}], image:null, emoji:'🍋', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
+  { id:'fresh-003', category:'fresh', names:{zh:'檸檬蔓越莓',en:'Lemon Cranberry',ja:'レモンクランベリー'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:35},{label:{zh:'大',en:'L',ja:'L'},value:50}], image:null, emoji:'🍋', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
+  { id:'fresh-004', category:'fresh', names:{zh:'檸檬梅子',en:'Lemon Plum',ja:'レモン梅'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:40},{label:{zh:'大',en:'L',ja:'L'},value:55}], image:null, emoji:'🍋', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
+  { id:'fresh-005', category:'fresh', names:{zh:'檸檬蜜',en:'Honey Lemon',ja:'ハニーレモン'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:45},{label:{zh:'大',en:'L',ja:'L'},value:65}], image:null, emoji:'🍯', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
+  { id:'fresh-006', category:'fresh', names:{zh:'檸檬養樂多',en:'Lemon Yakult',ja:'レモンヤクルト'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:45},{label:{zh:'大',en:'L',ja:'L'},value:65}], image:null, emoji:'🍋', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
+  { id:'fresh-007', category:'fresh', names:{zh:'鮮桔茶',en:'Fresh Tangerine Tea',ja:'フレッシュみかん茶'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:40},{label:{zh:'大',en:'L',ja:'L'},value:55}], image:null, emoji:'🍊', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
+  { id:'fresh-008', category:'fresh', names:{zh:'蟹茶',en:'Crab Apple Tea',ja:'カニリンゴ茶'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:30},{label:{zh:'大',en:'L',ja:'L'},value:45}], image:null, emoji:'🦀', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
+  { id:'fresh-009', category:'fresh', names:{zh:'8冰茶',en:'8 Iced Tea',ja:'8アイスティー'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:30},{label:{zh:'大',en:'L',ja:'L'},value:45}], image:null, emoji:'🧊', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
+  { id:'fresh-010', category:'fresh', names:{zh:'蔓越莓汁',en:'Cranberry Juice',ja:'クランベリージュース'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:30},{label:{zh:'大',en:'L',ja:'L'},value:45}], image:null, emoji:'🍒', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
+  { id:'fresh-011', category:'fresh', names:{zh:'葡萄柚汁',en:'Grapefruit Juice',ja:'グレープフルーツジュース'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:40},{label:{zh:'大',en:'L',ja:'L'},value:55}], image:null, emoji:'🍊', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
+  { id:'fresh-012', category:'fresh', names:{zh:'葡萄柚多多',en:'Grapefruit Yakult',ja:'グレープフルーツヤクルト'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:45},{label:{zh:'大',en:'L',ja:'L'},value:65}], image:null, emoji:'🍊', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
+  { id:'fresh-013', category:'fresh', names:{zh:'百香多多',en:'Passion Fruit Yakult',ja:'パッションフルーツヤクルト'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:45},{label:{zh:'大',en:'L',ja:'L'},value:65}], image:null, emoji:'🍈', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
+  { id:'fresh-014', category:'fresh', names:{zh:'鮮柚百香果',en:'Fresh Grapefruit Passion Fruit',ja:'フレッシュザボンパッションフルーツ'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:40},{label:{zh:'大',en:'L',ja:'L'},value:55}], image:null, emoji:'🍋', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
   // ── 找咖啡 ──
-  { id:'coffee-001', category:'coffee', names:{zh:'冰咖啡',en:'Iced Coffee',ja:'アイスコーヒー',ko:'아이스 커피'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:45},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:65}], image:null, emoji:'☕', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
-  { id:'coffee-002', category:'coffee', names:{zh:'咖啡拿鐵',en:'Café Latte',ja:'カフェラテ',ko:'카페 라떼'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:45},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:65}], image:null, emoji:'☕', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
-  { id:'coffee-003', category:'coffee', names:{zh:'漂浮冰咖啡',en:'Ice Cream Float Coffee',ja:'フロートアイスコーヒー',ko:'플로트 아이스 커피'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:50},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:70}], image:null, emoji:'☕', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'coffee-001', category:'coffee', names:{zh:'冰咖啡',en:'Iced Coffee',ja:'アイスコーヒー'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:45},{label:{zh:'大',en:'L',ja:'L'},value:65}], image:null, emoji:'☕', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
+  { id:'coffee-002', category:'coffee', names:{zh:'咖啡拿鐵',en:'Café Latte',ja:'カフェラテ'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:45},{label:{zh:'大',en:'L',ja:'L'},value:65}], image:null, emoji:'☕', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
+  { id:'coffee-003', category:'coffee', names:{zh:'漂浮冰咖啡',en:'Ice Cream Float Coffee',ja:'フロートアイスコーヒー'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:50},{label:{zh:'大',en:'L',ja:'L'},value:70}], image:null, emoji:'☕', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
   // ── 紅茶拿鐵 ──
-  { id:'latte-001', category:'latte', names:{zh:'紅茶拿鐵',en:'Black Tea Latte',ja:'紅茶ラテ',ko:'홍차 라떼'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:40},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:55}], image:null, emoji:'🍵', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
-  { id:'latte-002', category:'latte', names:{zh:'黑糖紅茶拿鐵',en:'Brown Sugar Black Tea Latte',ja:'黒糖紅茶ラテ',ko:'흑당 홍차 라떼'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:45},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:65}], image:null, emoji:'🍵', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
-  { id:'latte-003', category:'latte', names:{zh:'焦糖紅茶拿鐵',en:'Caramel Black Tea Latte',ja:'キャラメル紅茶ラテ',ko:'카라멜 홍차 라떼'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:45},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:65}], image:null, emoji:'🍵', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
-  { id:'latte-004', category:'latte', names:{zh:'榛果紅茶拿鐵',en:'Hazelnut Black Tea Latte',ja:'ヘーゼルナッツ紅茶ラテ',ko:'헤이즐넛 홍차 라떼'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:45},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:65}], image:null, emoji:'🍵', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
-  { id:'latte-005', category:'latte', names:{zh:'阿華田拿鐵',en:'Ovaltine Latte',ja:'オバルティンラテ',ko:'오발틴 라떼'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:45},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:65}], image:null, emoji:'🍵', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
-  { id:'latte-006', category:'latte', names:{zh:'可可芭薈拿鐵',en:'Cocoa Aloe Latte',ja:'ココアアロエラテ',ko:'코코아 알로에 라떼'}, price:[{label:{zh:'中',en:'M',ja:'M',ko:'M'},value:50},{label:{zh:'大',en:'L',ja:'L',ko:'L'},value:70}], image:null, emoji:'🍵', tags:[], desc:{zh:'',en:'',ja:'',ko:''}, note:{zh:'',en:'',ja:'',ko:''} },
+  { id:'latte-001', category:'latte', names:{zh:'紅茶拿鐵',en:'Black Tea Latte',ja:'紅茶ラテ'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:40},{label:{zh:'大',en:'L',ja:'L'},value:55}], image:null, emoji:'🍵', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
+  { id:'latte-002', category:'latte', names:{zh:'黑糖紅茶拿鐵',en:'Brown Sugar Black Tea Latte',ja:'黒糖紅茶ラテ'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:45},{label:{zh:'大',en:'L',ja:'L'},value:65}], image:null, emoji:'🍵', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
+  { id:'latte-003', category:'latte', names:{zh:'焦糖紅茶拿鐵',en:'Caramel Black Tea Latte',ja:'キャラメル紅茶ラテ'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:45},{label:{zh:'大',en:'L',ja:'L'},value:65}], image:null, emoji:'🍵', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
+  { id:'latte-004', category:'latte', names:{zh:'榛果紅茶拿鐵',en:'Hazelnut Black Tea Latte',ja:'ヘーゼルナッツ紅茶ラテ'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:45},{label:{zh:'大',en:'L',ja:'L'},value:65}], image:null, emoji:'🍵', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
+  { id:'latte-005', category:'latte', names:{zh:'阿華田拿鐵',en:'Ovaltine Latte',ja:'オバルティンラテ'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:45},{label:{zh:'大',en:'L',ja:'L'},value:65}], image:null, emoji:'🍵', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
+  { id:'latte-006', category:'latte', names:{zh:'可可芭薈拿鐵',en:'Cocoa Aloe Latte',ja:'ココアアロエラテ'}, price:[{label:{zh:'中',en:'M',ja:'M'},value:50},{label:{zh:'大',en:'L',ja:'L'},value:70}], image:null, emoji:'🍵', tags:[], desc:{zh:'',en:'',ja:''}, note:{zh:'',en:'',ja:''} },
 ];
 
 // ── State ──────────────────────────────────────────────────────────────────
